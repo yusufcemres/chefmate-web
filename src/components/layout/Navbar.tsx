@@ -48,10 +48,10 @@ export function Navbar() {
                 <Link href="/favoriler" className="p-2 rounded-full hover:bg-surface-low transition-colors">
                   <Heart className="w-5 h-5 text-text-secondary" />
                 </Link>
-                <button onClick={logout} className="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-low text-sm font-medium hover:bg-surface-high transition-colors">
+                <Link href="/profil" className="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-low text-sm font-medium hover:bg-surface-high transition-colors">
                   <User className="w-4 h-4" />
                   {user?.displayName}
-                </button>
+                </Link>
               </>
             ) : (
               <Link href="/giris" className="px-5 py-2.5 rounded-full bg-primary text-on-primary font-bold text-sm hover:bg-primary-dark transition-all hover:-translate-y-0.5 hover:shadow-md">
