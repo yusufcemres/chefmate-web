@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Search, Heart, ChefHat, User, Menu, X } from 'lucide-react';
+import { Search, Heart, ChefHat, User, Menu, X, Calendar, ShoppingCart } from 'lucide-react';
 import { useAuthStore } from '@/stores/auth-store';
 
 export function Navbar() {
@@ -36,6 +36,16 @@ export function Navbar() {
             <Link href="/etiket/turk-mutfagi" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
               Mutfaklar
             </Link>
+            {isAuthenticated && (
+              <>
+                <Link href="/plan" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
+                  Planla
+                </Link>
+                <Link href="/alisveris" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
+                  Alışveriş
+                </Link>
+              </>
+            )}
           </nav>
 
           {/* Desktop Actions */}
@@ -74,6 +84,8 @@ export function Navbar() {
             {isAuthenticated ? (
               <>
                 <Link href="/favoriler" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Favoriler</Link>
+                <Link href="/plan" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Yemek Planı</Link>
+                <Link href="/alisveris" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Alışveriş Listesi</Link>
                 <button onClick={() => { logout(); setMenuOpen(false); }} className="block py-2 text-sm font-semibold text-error">Çıkış Yap</button>
               </>
             ) : (

@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { Clock, Flame, Users, Star, ChefHat, ArrowLeft } from 'lucide-react';
 import { CookButton } from '@/components/recipe/CookButton';
 import { FavoriteButton } from '@/components/recipe/FavoriteButton';
+import { AiSuggestPanel } from '@/components/recipe/AiSuggestPanel';
+import { AddToShoppingList } from '@/components/recipe/AddToShoppingList';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -80,6 +82,9 @@ export default async function RecipeDetailPage({ params }: Props) {
       nutrition: {
         '@type': 'NutritionInformation',
         calories: `${Math.round(recipe.totalCalories)} kcal`,
+        ...(recipe.totalProtein && { proteinContent: `${recipe.totalProtein.toFixed(1)} g` }),
+        ...(recipe.totalCarbs && { carbohydrateContent: `${recipe.totalCarbs.toFixed(1)} g` }),
+        ...(recipe.totalFat && { fatContent: `${recipe.totalFat.toFixed(1)} g` }),
       },
     }),
   };
@@ -160,7 +165,67 @@ export default async function RecipeDetailPage({ params }: Props) {
                 ))}
               </ul>
               <CookButton slug={slug} />
+              <AddToShoppingList recipeId={recipe.id} />
             </div>
+
+            {/* Besin Değerleri */}
+            {(recipe.totalCalories || recipe.totalProtein || recipe.totalCarbs || recipe.totalFat) && (
+              <div className="bg-card rounded-2xl border border-border-light p-6 mt-4">
+                <h2 className="font-heading text-lg font-bold mb-4">Besin Değerleri</h2>
+                <p className="text-xs text-text-muted mb-4">Porsiyon başına ({recipe.servingSize} kişilik)</p>
+                <div className="grid grid-cols-2 gap-3">
+                  {recipe.totalCalories != null && (
+                    <div className="bg-surface-low rounded-xl p-3 text-center">
+                      <div className="text-2xl font-bold text-primary">{Math.round(recipe.totalCalories)}</div>
+                      <div className="text-xs text-text-muted mt-0.5">kcal</div>
+                    </div>
+                  )}
+                  {recipe.totalProtein != null && (
+                    <div className="bg-surface-low rounded-xl p-3 text-center">
+                      <div className="text-2xl font-bold text-blue-500">{recipe.totalProtein.toFixed(1)}</div>
+                      <div className="text-xs text-text-muted mt-0.5">Protein (g)</div>
+                    </div>
+                  )}
+                  {recipe.totalCarbs != null && (
+                    <div className="bg-surface-low rounded-xl p-3 text-center">
+                      <div className="text-2xl font-bold text-amber-500">{recipe.totalCarbs.toFixed(1)}</div>
+                      <div className="text-xs text-text-muted mt-0.5">Karbonhidrat (g)</div>
+                    </div>
+                  )}
+                  {recipe.totalFat != null && (
+                    <div className="bg-surface-low rounded-xl p-3 text-center">
+                      <div className="text-2xl font-bold text-rose-500">{recipe.totalFat.toFixed(1)}</div>
+                      <div className="text-xs text-text-muted mt-0.5">Yağ (g)</div>
+                    </div>
+                  )}
+                </div>
+                {/* Macro bar */}
+                {recipe.totalProtein != null && recipe.totalCarbs != null && recipe.totalFat != null && (() => {
+                  const total = recipe.totalProtein! + recipe.totalCarbs! + recipe.totalFat!;
+                  if (total === 0) return null;
+                  const pPct = (recipe.totalProtein! / total) * 100;
+                  const cPct = (recipe.totalCarbs! / total) * 100;
+                  const fPct = (recipe.totalFat! / total) * 100;
+                  return (
+                    <div className="mt-4">
+                      <div className="flex h-2.5 rounded-full overflow-hidden">
+                        <div className="bg-blue-500" style={{ width: `${pPct}%` }} />
+                        <div className="bg-amber-500" style={{ width: `${cPct}%` }} />
+                        <div className="bg-rose-500" style={{ width: `${fPct}%` }} />
+                      </div>
+                      <div className="flex justify-between text-[10px] text-text-muted mt-1">
+                        <span>P %{Math.round(pPct)}</span>
+                        <span>K %{Math.round(cPct)}</span>
+                        <span>Y %{Math.round(fPct)}</span>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
+            )}
+
+            {/* AI Kişiselleştirme */}
+            <AiSuggestPanel recipeId={recipe.id} recipeTitle={recipe.title} />
           </div>
 
           {/* Steps */}

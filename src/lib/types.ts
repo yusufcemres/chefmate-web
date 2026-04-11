@@ -102,6 +102,62 @@ export interface Collection {
   recipes: Recipe[];
 }
 
+// ========== AI SUGGESTION ==========
+export type SuggestionType = 'healthier' | 'cuisine' | 'dietary' | 'budget' | 'quick' | 'inventory' | 'custom';
+
+export interface AiSuggestionResult {
+  title: string;
+  description: string;
+  ingredients: { name: string; quantity: string; unit: string; changed: boolean }[];
+  steps: { stepNumber: number; instruction: string; changed: boolean }[];
+  changesSummary: string;
+  nutritionEstimate?: { calories: number; protein: number; carbs: number; fat: number };
+}
+
+export interface AiSuggestionLog {
+  id: string;
+  suggestionType: SuggestionType;
+  result: AiSuggestionResult;
+  createdAt: string;
+}
+
+// ========== MEAL PLAN ==========
+export interface MealPlan {
+  id: string;
+  name: string;
+  startDate: string;
+  endDate: string;
+  status: 'ACTIVE' | 'COMPLETED' | 'ARCHIVED';
+  items: MealPlanItem[];
+  createdAt: string;
+}
+
+export interface MealPlanItem {
+  id: string;
+  date: string;
+  mealType: 'BREAKFAST' | 'LUNCH' | 'DINNER' | 'SNACK';
+  recipe: Recipe;
+  isCooked: boolean;
+}
+
+// ========== SHOPPING LIST ==========
+export interface ShoppingList {
+  id: string;
+  name: string;
+  status: 'ACTIVE' | 'COMPLETED' | 'ARCHIVED';
+  items: ShoppingListItem[];
+  createdAt: string;
+}
+
+export interface ShoppingListItem {
+  id: string;
+  name: string;
+  quantity: number | null;
+  unit: string | null;
+  isChecked: boolean;
+  category?: string;
+}
+
 // ========== PAGINATION ==========
 export interface PaginatedResponse<T> {
   items: T[];
