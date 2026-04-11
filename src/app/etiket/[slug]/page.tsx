@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function getRecipesByTag(slug: string) {
-  return fetchApi<{ items: Recipe[] }>(`/recipes?tags[]=${slug}&status=PUBLISHED&limit=20`);
+  return fetchApi<{ items: Recipe[] }>(`/recipes?tags=${slug}&status=PUBLISHED&limit=20`);
 }
 
 export default async function TagPage({ params }: Props) {

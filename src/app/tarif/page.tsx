@@ -18,7 +18,7 @@ async function getRecipes(params: { q?: string; sort?: string; tag?: string }) {
   query.set('status', 'PUBLISHED');
   query.set('limit', '20');
   if (params.q) query.set('search', params.q);
-  if (params.tag) query.set('tags[]', params.tag);
+  if (params.tag) query.set('tags', params.tag);
   return fetchApi<{ items: Recipe[]; nextCursor: string | null; hasMore: boolean }>(`/recipes?${query.toString()}`);
 }
 

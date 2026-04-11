@@ -170,7 +170,7 @@ export default async function RecipeDetailPage({ params }: Props) {
               {recipe.steps?.map((step) => (
                 <li key={step.id} className="flex gap-4">
                   <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold">
-                    {step.stepOrder}
+                    {step.stepNumber}
                   </span>
                   <div className="flex-1 pt-1">
                     <p className="text-base leading-relaxed">{step.instruction}</p>
@@ -179,9 +179,9 @@ export default async function RecipeDetailPage({ params }: Props) {
                         💡 {step.tip}
                       </p>
                     )}
-                    {step.durationMinutes && (
+                    {step.stepDurationMinutes && (
                       <span className="inline-flex items-center gap-1 mt-2 text-xs text-primary font-medium">
-                        <Clock className="w-3 h-3" /> {step.durationMinutes} dk
+                        <Clock className="w-3 h-3" /> {step.stepDurationMinutes} dk
                       </span>
                     )}
                   </div>

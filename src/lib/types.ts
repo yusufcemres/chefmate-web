@@ -52,10 +52,11 @@ export interface RecipeIngredient {
 
 export interface RecipeStep {
   id: string;
-  stepOrder: number;
+  stepNumber: number;
   instruction: string;
-  durationMinutes: number | null;
-  tip: string | null;
+  stepDurationMinutes: number | null;
+  tip?: string | null;
+  imageUrl?: string | null;
 }
 
 export interface RecipeTag {

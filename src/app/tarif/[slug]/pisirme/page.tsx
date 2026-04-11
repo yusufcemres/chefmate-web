@@ -171,9 +171,9 @@ export default function CookingModePage() {
               <div className="bg-card rounded-2xl border border-border-light p-6 min-h-[300px] flex flex-col">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">
-                    {step.stepOrder}
+                    {step.stepNumber}
                   </span>
-                  <span className="text-xs text-text-muted font-medium">Adım {step.stepOrder}</span>
+                  <span className="text-xs text-text-muted font-medium">Adım {step.stepNumber}</span>
                 </div>
 
                 <p className="text-lg leading-relaxed flex-1">{step.instruction}</p>
@@ -185,19 +185,19 @@ export default function CookingModePage() {
                 )}
 
                 {/* Step timer */}
-                {step.durationMinutes && (
+                {step.stepDurationMinutes && (
                   <div className="mt-6 p-4 rounded-xl bg-surface-low">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-primary" />
                         <span className="text-sm font-medium">
-                          {timerRunning ? formatTime(timer) : `${step.durationMinutes} dakika`}
+                          {timerRunning ? formatTime(timer) : `${step.stepDurationMinutes} dakika`}
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         {!timerRunning && timer === 0 && (
                           <button
-                            onClick={() => startStepTimer(step.durationMinutes!)}
+                            onClick={() => startStepTimer(step.stepDurationMinutes!)}
                             className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary text-on-primary text-xs font-bold"
                           >
                             <Play className="w-3 h-3" /> Başlat
@@ -233,7 +233,7 @@ export default function CookingModePage() {
                       <div className="mt-2 h-1.5 bg-border-light rounded-full overflow-hidden">
                         <div
                           className="h-full bg-primary transition-all duration-1000"
-                          style={{ width: `${step.durationMinutes ? ((step.durationMinutes * 60 - timer) / (step.durationMinutes * 60)) * 100 : 0}%` }}
+                          style={{ width: `${step.stepDurationMinutes ? ((step.stepDurationMinutes * 60 - timer) / (step.stepDurationMinutes * 60)) * 100 : 0}%` }}
                         />
                       </div>
                     )}
