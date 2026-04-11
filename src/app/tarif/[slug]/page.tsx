@@ -9,6 +9,7 @@ import { FavoriteButton } from '@/components/recipe/FavoriteButton';
 import { AiSuggestPanel } from '@/components/recipe/AiSuggestPanel';
 import { AddToShoppingList } from '@/components/recipe/AddToShoppingList';
 import { RecipeReviews } from '@/components/recipe/RecipeReviews';
+import { IngredientSubstitutions } from '@/components/recipe/IngredientSubstitutions';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -155,13 +156,14 @@ export default async function RecipeDetailPage({ params }: Props) {
               <h2 className="font-heading text-lg font-bold mb-4">Malzemeler</h2>
               <ul className="space-y-3">
                 {recipe.ingredients?.map((ing) => (
-                  <li key={ing.id} className="flex items-start gap-3 text-sm">
+                  <li key={ing.id} className="flex items-start gap-3 text-sm flex-wrap">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <span>
+                    <span className="flex-1">
                       <strong className="font-semibold">{ing.quantityDisplay} {ing.displayUnit}</strong>{' '}
                       {ing.ingredientNameSnapshot}
                       {ing.isOptional && <span className="text-text-muted ml-1">(isteğe bağlı)</span>}
                     </span>
+                    <IngredientSubstitutions ingredientName={ing.ingredientNameSnapshot} />
                   </li>
                 ))}
               </ul>

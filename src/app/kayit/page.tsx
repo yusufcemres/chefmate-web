@@ -23,7 +23,7 @@ export default function RegisterPage() {
     setLoading(true);
     try {
       await register(email, password, displayName);
-      router.push('/');
+      router.push('/hosgeldin');
     } catch (err: any) {
       setError(err.message || 'Kayıt başarısız');
     } finally {

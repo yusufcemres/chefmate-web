@@ -39,12 +39,16 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Uygulama */}
+          {/* Özellikler */}
           <div>
-            <h4 className="font-heading font-bold text-sm mb-3">Uygulama</h4>
+            <h4 className="font-heading font-bold text-sm mb-3">Özellikler</h4>
             <div className="space-y-2">
+              <Link href="/koleksiyon" className="block text-sm text-text-secondary hover:text-primary transition-colors">Koleksiyonlar</Link>
+              <Link href="/stok" className="block text-sm text-text-secondary hover:text-primary transition-colors">Mutfak Stoğu</Link>
+              <Link href="/plan" className="block text-sm text-text-secondary hover:text-primary transition-colors">Yemek Planı</Link>
+              <Link href="/alisveris" className="block text-sm text-text-secondary hover:text-primary transition-colors">Alışveriş Listesi</Link>
+              <Link href="/oneriler" className="block text-sm text-text-secondary hover:text-primary transition-colors">AI Öneriler</Link>
               <Link href="/giris" className="block text-sm text-text-secondary hover:text-primary transition-colors">Giriş Yap</Link>
-              <Link href="/kayit" className="block text-sm text-text-secondary hover:text-primary transition-colors">Kayıt Ol</Link>
             </div>
           </div>
         </div>
