@@ -55,7 +55,7 @@ export function Navbar() {
               </>
             ) : (
               <Link href="/giris" className="px-5 py-2.5 rounded-full bg-primary text-on-primary font-bold text-sm hover:bg-primary-dark transition-all hover:-translate-y-0.5 hover:shadow-md">
-                Giris Yap
+                Giriş Yap
               </Link>
             )}
           </div>
@@ -74,11 +74,11 @@ export function Navbar() {
             {isAuthenticated ? (
               <>
                 <Link href="/favoriler" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Favoriler</Link>
-                <button onClick={() => { logout(); setMenuOpen(false); }} className="block py-2 text-sm font-semibold text-error">Cikis Yap</button>
+                <button onClick={() => { logout(); setMenuOpen(false); }} className="block py-2 text-sm font-semibold text-error">Çıkış Yap</button>
               </>
             ) : (
               <Link href="/giris" onClick={() => setMenuOpen(false)} className="inline-block px-5 py-2.5 rounded-full bg-primary text-on-primary font-bold text-sm">
-                Giris Yap
+                Giriş Yap
               </Link>
             )}
           </div>

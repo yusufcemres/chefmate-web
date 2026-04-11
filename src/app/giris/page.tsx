@@ -23,7 +23,7 @@ export default function LoginPage() {
       await login(email, password);
       router.push('/');
     } catch (err: any) {
-      setError(err.message || 'Giris basarisiz');
+      setError(err.message || 'Giriş başarısız');
     } finally {
       setLoading(false);
     }
@@ -34,8 +34,8 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <ChefHat className="w-12 h-12 text-primary mx-auto mb-3" />
-          <h1 className="font-heading text-2xl font-extrabold">Tekrar Hosgeldin</h1>
-          <p className="text-sm text-text-muted mt-1">ChefMate hesabinla giris yap</p>
+          <h1 className="font-heading text-2xl font-extrabold">Tekrar Hoşgeldin</h1>
+          <p className="text-sm text-text-muted mt-1">ChefMate hesabınla giriş yap</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -51,12 +51,12 @@ export default function LoginPage() {
               onChange={e => setEmail(e.target.value)}
               required
               className="w-full px-4 py-3 rounded-xl bg-card border border-border-light text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
-              placeholder="ornek@email.com"
+              placeholder="örnek@email.com"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1.5">Sifre</label>
+            <label className="block text-sm font-medium mb-1.5">Şifre</label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -64,7 +64,7 @@ export default function LoginPage() {
                 onChange={e => setPassword(e.target.value)}
                 required
                 className="w-full px-4 py-3 rounded-xl bg-card border border-border-light text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all pr-10"
-                placeholder="Sifreniz"
+                placeholder="Şifreniz"
               />
               <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted">
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -77,13 +77,13 @@ export default function LoginPage() {
             disabled={loading}
             className="w-full py-3 rounded-xl bg-primary text-on-primary font-bold text-sm hover:bg-primary-dark transition-all disabled:opacity-50"
           >
-            {loading ? 'Giris yapiliyor...' : 'Giris Yap'}
+            {loading ? 'Giriş yapılıyor...' : 'Giriş Yap'}
           </button>
         </form>
 
         <p className="text-center text-sm text-text-muted mt-6">
-          Hesabin yok mu?{' '}
-          <Link href="/kayit" className="text-primary font-semibold hover:underline">Kayit Ol</Link>
+          Hesabın yok mu?{' '}
+          <Link href="/kayit" className="text-primary font-semibold hover:underline">Kayıt Ol</Link>
         </p>
       </div>
     </div>

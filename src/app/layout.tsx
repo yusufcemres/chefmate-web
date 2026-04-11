@@ -20,11 +20,11 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: 'ChefMate — Mutfaginiz Dijital Asistani',
+    default: 'ChefMate — Mutfağınızın Dijital Asistanı',
     template: '%s | ChefMate',
   },
-  description: 'AI destekli tarif onerileri, akilli stok yonetimi, yemek planlama. 995+ Turk mutfagi tarifi.',
-  keywords: ['tarif', 'yemek', 'mutfak', 'Turk mutfagi', 'AI tarif', 'yemek plani'],
+  description: 'AI destekli tarif önerileri, akıllı stok yönetimi, yemek planlama. 995+ Türk mutfağı tarifi.',
+  keywords: ['tarif', 'yemek', 'mutfak', 'Türk mutfağı', 'AI tarif', 'yemek planı'],
   openGraph: {
     type: 'website',
     locale: 'tr_TR',

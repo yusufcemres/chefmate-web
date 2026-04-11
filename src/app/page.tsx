@@ -45,9 +45,9 @@ export default async function HomePage() {
       {trending.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="font-heading text-2xl font-bold">Populer Tarifler</h2>
+            <h2 className="font-heading text-2xl font-bold">Popüler Tarifler</h2>
             <Link href="/tarif?sort=trending" className="flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
-              Tumunu Gor <ChevronRight className="w-4 h-4" />
+              Tümünü Gör <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -64,7 +64,7 @@ export default async function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-heading text-2xl font-bold">Mevsim Tarifleri</h2>
             <Link href="/tarif?sort=seasonal" className="flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
-              Tumunu Gor <ChevronRight className="w-4 h-4" />
+              Tümünü Gör <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

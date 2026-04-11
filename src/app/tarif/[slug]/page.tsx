@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const recipe = await getRecipe(slug);
     return {
       title: recipe.title,
-      description: recipe.description || `${recipe.title} tarifi - ${recipe.totalTimeMinutes} dakikada hazir.`,
+      description: recipe.description || `${recipe.title} tarifi - ${recipe.totalTimeMinutes} dakikada hazır.`,
       openGraph: {
         title: recipe.title,
         description: recipe.description,
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch {
-    return { title: 'Tarif Bulunamadi' };
+    return { title: 'Tarif Bulunamadı' };
   }
 }
 
@@ -42,8 +42,8 @@ export default async function RecipeDetailPage({ params }: Props) {
     return (
       <div className="max-w-3xl mx-auto px-4 pt-24 pb-16 text-center">
         <ChefHat className="w-16 h-16 text-text-muted/30 mx-auto mb-4" />
-        <h1 className="font-heading text-2xl font-bold mb-2">Tarif Bulunamadi</h1>
-        <p className="text-text-muted mb-6">Aradiginiz tarif mevcut degil veya kaldirilmis olabilir.</p>
+        <h1 className="font-heading text-2xl font-bold mb-2">Tarif Bulunamadı</h1>
+        <p className="text-text-muted mb-6">Aradığınız tarif mevcut değil veya kaldırılmış olabilir.</p>
         <Link href="/" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-on-primary font-bold text-sm">
           <ArrowLeft className="w-4 h-4" /> Ana Sayfa
         </Link>
@@ -65,7 +65,7 @@ export default async function RecipeDetailPage({ params }: Props) {
     totalTime: `PT${recipe.totalTimeMinutes}M`,
     recipeYield: `${recipe.servingSize} porsiyon`,
     recipeCategory: recipe.tags?.find(t => t.tag?.type === 'MEAL_TYPE')?.tag.name,
-    recipeCuisine: recipe.tags?.find(t => t.tag?.type === 'CUISINE')?.tag.name || 'Turk Mutfagi',
+    recipeCuisine: recipe.tags?.find(t => t.tag?.type === 'CUISINE')?.tag.name || 'Türk Mutfağı',
     recipeIngredient: recipe.ingredients?.map(i => `${i.quantityDisplay} ${i.displayUnit} ${i.ingredientNameSnapshot}`),
     recipeInstructions: recipe.steps?.map(s => ({ '@type': 'HowToStep', text: s.instruction })),
     ...(recipe.ratingAvg > 0 && {
@@ -90,7 +90,7 @@ export default async function RecipeDetailPage({ params }: Props) {
       <article className="max-w-4xl mx-auto px-4 sm:px-6 pt-20 pb-16">
         {/* Back */}
         <Link href="/" className="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary mb-6 transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Tariflere Don
+          <ArrowLeft className="w-4 h-4" /> Tariflere Dön
         </Link>
 
         {/* Hero image */}
@@ -110,7 +110,7 @@ export default async function RecipeDetailPage({ params }: Props) {
             <Clock className="w-4 h-4 text-primary" /> {recipe.totalTimeMinutes} dk
           </span>
           <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-low text-sm font-medium">
-            <Users className="w-4 h-4 text-primary" /> {recipe.servingSize} kisilik
+            <Users className="w-4 h-4 text-primary" /> {recipe.servingSize} kişilik
           </span>
           <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-low text-sm font-medium">
             <ChefHat className="w-4 h-4 text-primary" /> {diffLabel}
@@ -150,7 +150,7 @@ export default async function RecipeDetailPage({ params }: Props) {
                     <span>
                       <strong className="font-semibold">{ing.quantityDisplay} {ing.displayUnit}</strong>{' '}
                       {ing.ingredientNameSnapshot}
-                      {ing.isOptional && <span className="text-text-muted ml-1">(istege bagli)</span>}
+                      {ing.isOptional && <span className="text-text-muted ml-1">(isteğe bağlı)</span>}
                     </span>
                   </li>
                 ))}
@@ -161,7 +161,7 @@ export default async function RecipeDetailPage({ params }: Props) {
 
           {/* Steps */}
           <div className="lg:col-span-2">
-            <h2 className="font-heading text-lg font-bold mb-6">Yapilis</h2>
+            <h2 className="font-heading text-lg font-bold mb-6">Yapılış</h2>
             <ol className="space-y-6">
               {recipe.steps?.map((step) => (
                 <li key={step.id} className="flex gap-4">
@@ -188,7 +188,7 @@ export default async function RecipeDetailPage({ params }: Props) {
             {/* Tips */}
             {recipe.tips && (
               <div className="mt-8 p-5 rounded-2xl bg-secondary-container/30 border border-secondary/20">
-                <h3 className="font-heading font-bold text-sm mb-2">Puf Noktalari</h3>
+                <h3 className="font-heading font-bold text-sm mb-2">Püf Noktaları</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{recipe.tips}</p>
               </div>
             )}

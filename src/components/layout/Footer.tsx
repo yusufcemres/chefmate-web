@@ -13,29 +13,29 @@ export function Footer() {
               <span className="font-heading text-lg font-extrabold text-primary">ChefMate</span>
             </div>
             <p className="text-sm text-text-muted leading-relaxed">
-              Mutfaginizin dijital asistani. AI destekli tarif onerileri ve akilli mutfak yonetimi.
+              Mutfağınızın dijital asistanı. AI destekli tarif önerileri ve akıllı mutfak yönetimi.
             </p>
           </div>
 
           {/* Kesfet */}
           <div>
-            <h4 className="font-heading font-bold text-sm mb-3">Kesfet</h4>
+            <h4 className="font-heading font-bold text-sm mb-3">Keşfet</h4>
             <div className="space-y-2">
-              <Link href="/tarif" className="block text-sm text-text-secondary hover:text-primary transition-colors">Tum Tarifler</Link>
-              <Link href="/etiket/turk-mutfagi" className="block text-sm text-text-secondary hover:text-primary transition-colors">Turk Mutfagi</Link>
+              <Link href="/tarif" className="block text-sm text-text-secondary hover:text-primary transition-colors">Tüm Tarifler</Link>
+              <Link href="/etiket/turk-mutfagi" className="block text-sm text-text-secondary hover:text-primary transition-colors">Türk Mutfağı</Link>
               <Link href="/etiket/kolay" className="block text-sm text-text-secondary hover:text-primary transition-colors">Kolay Tarifler</Link>
-              <Link href="/etiket/saglikli" className="block text-sm text-text-secondary hover:text-primary transition-colors">Saglikli Tarifler</Link>
+              <Link href="/etiket/saglikli" className="block text-sm text-text-secondary hover:text-primary transition-colors">Sağlıklı Tarifler</Link>
             </div>
           </div>
 
           {/* Ogun */}
           <div>
-            <h4 className="font-heading font-bold text-sm mb-3">Ogune Gore</h4>
+            <h4 className="font-heading font-bold text-sm mb-3">Öğüne Göre</h4>
             <div className="space-y-2">
-              <Link href="/etiket/kahvalti" className="block text-sm text-text-secondary hover:text-primary transition-colors">Kahvalti</Link>
-              <Link href="/etiket/ogle-yemegi" className="block text-sm text-text-secondary hover:text-primary transition-colors">Ogle Yemegi</Link>
-              <Link href="/etiket/aksam-yemegi" className="block text-sm text-text-secondary hover:text-primary transition-colors">Aksam Yemegi</Link>
-              <Link href="/etiket/atistirmalik" className="block text-sm text-text-secondary hover:text-primary transition-colors">Atistirmalik</Link>
+              <Link href="/etiket/kahvalti" className="block text-sm text-text-secondary hover:text-primary transition-colors">Kahvaltı</Link>
+              <Link href="/etiket/ogle-yemegi" className="block text-sm text-text-secondary hover:text-primary transition-colors">Öğle Yemeği</Link>
+              <Link href="/etiket/aksam-yemegi" className="block text-sm text-text-secondary hover:text-primary transition-colors">Akşam Yemeği</Link>
+              <Link href="/etiket/atistirmalik" className="block text-sm text-text-secondary hover:text-primary transition-colors">Atıştırmalık</Link>
             </div>
           </div>
 
@@ -43,14 +43,14 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-bold text-sm mb-3">Uygulama</h4>
             <div className="space-y-2">
-              <Link href="/giris" className="block text-sm text-text-secondary hover:text-primary transition-colors">Giris Yap</Link>
-              <Link href="/kayit" className="block text-sm text-text-secondary hover:text-primary transition-colors">Kayit Ol</Link>
+              <Link href="/giris" className="block text-sm text-text-secondary hover:text-primary transition-colors">Giriş Yap</Link>
+              <Link href="/kayit" className="block text-sm text-text-secondary hover:text-primary transition-colors">Kayıt Ol</Link>
             </div>
           </div>
         </div>
 
         <div className="border-t border-border-light mt-8 pt-6 text-center">
-          <p className="text-xs text-text-muted">&copy; 2026 ChefMate. Tum haklar saklidir.</p>
+          <p className="text-xs text-text-muted">&copy; 2026 ChefMate. Tüm hakları saklıdır.</p>
         </div>
       </div>
     </footer>

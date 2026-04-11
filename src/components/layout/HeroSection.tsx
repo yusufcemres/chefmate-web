@@ -23,10 +23,10 @@ export function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
         <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-          Bugun Ne <span className="text-primary">Pisirsem?</span>
+          Bugün Ne <span className="text-primary">Pişirsem?</span>
         </h1>
         <p className="text-lg text-text-secondary max-w-xl mx-auto mb-8">
-          995+ tarif, AI destekli oneriler ve akilli mutfak yonetimi. Mutfaginizin dijital asistani.
+          995+ tarif, AI destekli öneriler ve akıllı mutfak yönetimi. Mutfağınızın dijital asistanı.
         </p>
 
         {/* Search */}
@@ -36,7 +36,7 @@ export function HeroSection() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Tarif, malzeme veya mutfak ara..."
+            placeholder="Tarif, malzeme veya mutfak ara\u2026"
             className="w-full pl-12 pr-28 py-4 rounded-full bg-card border border-border-light shadow-md text-base focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
           />
           <button
@@ -49,7 +49,7 @@ export function HeroSection() {
 
         {/* Quick tags */}
         <div className="flex flex-wrap justify-center gap-2 mt-6">
-          {['Mercimek Corbasi', 'Kofte', 'Borek', 'Pilav', 'Tatlı'].map((tag) => (
+          {['Mercimek Çorbası', 'Köfte', 'Börek', 'Pilav', 'Tatlı'].map((tag) => (
             <button
               key={tag}
               onClick={() => router.push(`/tarif?q=${encodeURIComponent(tag)}`)}

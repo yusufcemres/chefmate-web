@@ -59,7 +59,7 @@ class ApiClient {
         const retryJson = await retryRes.json();
         return retryJson.data !== undefined ? retryJson.data : retryJson;
       }
-      throw new Error('Oturum suresi doldu. Lutfen tekrar giris yapin.');
+      throw new Error('Oturum süresi doldu. Lütfen tekrar giriş yapın.');
     }
 
     if (!res.ok) throw await this.parseError(res);

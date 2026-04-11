@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Tarifler',
-  description: '995+ Turk mutfagi tarifi. Kolay, orta ve zor tarifler. AI destekli arama.',
+  description: '995+ Türk mutfağı tarifi. Kolay, orta ve zor tarifler. AI destekli arama.',
 };
 
 interface Props {
@@ -29,7 +29,7 @@ export default async function RecipeListPage({ searchParams }: Props) {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16">
       <h1 className="font-heading text-3xl font-extrabold mb-2">
-        {params.q ? `"${params.q}" icin sonuclar` : 'Tum Tarifler'}
+        {params.q ? `"${params.q}" için sonuçlar` : 'Tüm Tarifler'}
       </h1>
       <p className="text-text-muted mb-8">{data.items.length} tarif bulundu</p>
 
@@ -44,8 +44,8 @@ export default async function RecipeListPage({ searchParams }: Props) {
       ) : (
         <div className="text-center py-16">
           <p className="text-5xl mb-4">🍳</p>
-          <h2 className="font-heading text-xl font-bold mb-2">Tarif bulunamadi</h2>
-          <p className="text-text-muted">Farkli anahtar kelimeler deneyin.</p>
+          <h2 className="font-heading text-xl font-bold mb-2">Tarif bulunamadı</h2>
+          <p className="text-text-muted">Farklı anahtar kelimeler deneyin.</p>
         </div>
       )}
     </div>
