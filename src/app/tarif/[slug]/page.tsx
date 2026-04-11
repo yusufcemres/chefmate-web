@@ -8,6 +8,7 @@ import { CookButton } from '@/components/recipe/CookButton';
 import { FavoriteButton } from '@/components/recipe/FavoriteButton';
 import { AiSuggestPanel } from '@/components/recipe/AiSuggestPanel';
 import { AddToShoppingList } from '@/components/recipe/AddToShoppingList';
+import { RecipeReviews } from '@/components/recipe/RecipeReviews';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -261,6 +262,9 @@ export default async function RecipeDetailPage({ params }: Props) {
                 <p className="text-sm text-text-secondary leading-relaxed">{recipe.tips}</p>
               </div>
             )}
+
+            {/* Reviews */}
+            <RecipeReviews recipeId={recipe.id} />
           </div>
         </div>
       </article>

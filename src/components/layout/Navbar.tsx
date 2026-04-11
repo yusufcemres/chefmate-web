@@ -36,13 +36,16 @@ export function Navbar() {
             <Link href="/etiket/turk-mutfagi" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
               Mutfaklar
             </Link>
+            <Link href="/koleksiyon" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
+              Koleksiyonlar
+            </Link>
             {isAuthenticated && (
               <>
+                <Link href="/stok" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
+                  Stoğum
+                </Link>
                 <Link href="/plan" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
                   Planla
-                </Link>
-                <Link href="/alisveris" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
-                  Alışveriş
                 </Link>
               </>
             )}
@@ -81,11 +84,15 @@ export function Navbar() {
           <div className="md:hidden py-4 border-t border-border-light/30 space-y-3">
             <Link href="/tarif" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Tarifler</Link>
             <Link href="/etiket/turk-mutfagi" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Mutfaklar</Link>
+            <Link href="/koleksiyon" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Koleksiyonlar</Link>
             {isAuthenticated ? (
               <>
                 <Link href="/favoriler" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Favoriler</Link>
+                <Link href="/stok" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Mutfak Stoğum</Link>
                 <Link href="/plan" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Yemek Planı</Link>
                 <Link href="/alisveris" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Alışveriş Listesi</Link>
+                <Link href="/oneriler" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Sana Özel Öneriler</Link>
+                <Link href="/hane" onClick={() => setMenuOpen(false)} className="block py-2 text-sm font-semibold">Hanem</Link>
                 <button onClick={() => { logout(); setMenuOpen(false); }} className="block py-2 text-sm font-semibold text-error">Çıkış Yap</button>
               </>
             ) : (

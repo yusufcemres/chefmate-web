@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/stores/auth-store';
 import { api } from '@/lib/api-client';
 import { User, Mail, ChefHat, Heart, BookOpen, LogOut, Settings } from 'lucide-react';
+import { UserPreferences } from '@/components/profile/UserPreferences';
 
 interface UserProfile {
   id: string;
@@ -98,6 +99,9 @@ export default function ProfilePage() {
             </div>
           )}
 
+          {/* Preferences */}
+          <UserPreferences />
+
           {/* Actions */}
           <div className="bg-card rounded-2xl border border-border-light divide-y divide-border-light">
             <button
@@ -105,6 +109,12 @@ export default function ProfilePage() {
               className="w-full flex items-center gap-3 px-5 py-4 text-sm font-medium hover:bg-surface-low transition-colors"
             >
               <Heart className="w-4 h-4 text-text-muted" /> Favori Tariflerim
+            </button>
+            <button
+              onClick={() => router.push('/stok')}
+              className="w-full flex items-center gap-3 px-5 py-4 text-sm font-medium hover:bg-surface-low transition-colors"
+            >
+              <Settings className="w-4 h-4 text-text-muted" /> Mutfak Stoğum
             </button>
             <button
               onClick={handleLogout}
