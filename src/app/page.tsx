@@ -4,6 +4,7 @@ import { RecipeCard } from '@/components/recipe/RecipeCard';
 import { HeroSection } from '@/components/layout/HeroSection';
 import { TagFilter } from '@/components/recipe/TagFilter';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 
 async function getTrending() {
@@ -84,7 +85,7 @@ export default async function HomePage() {
               <Link key={col.id} href={`/etiket/${col.slug}`} className="group relative block rounded-2xl overflow-hidden aspect-[2/1] hover-lift">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10" />
                 {col.imageUrl && (
-                  <img src={col.imageUrl} alt={col.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Image src={col.imageUrl} alt={col.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 )}
                 <div className="absolute bottom-0 left-0 right-0 p-5 z-20">
                   <h3 className="font-heading font-bold text-lg text-white">{col.name}</h3>

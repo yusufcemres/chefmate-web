@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Manrope } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { Analytics } from '@vercel/analytics/next';
 
 const jakarta = Plus_Jakarta_Sans({
   variable: '--font-jakarta',
@@ -24,11 +25,26 @@ export const metadata: Metadata = {
     template: '%s | ChefMate',
   },
   description: 'AI destekli tarif önerileri, akıllı stok yönetimi, yemek planlama. 995+ Türk mutfağı tarifi.',
-  keywords: ['tarif', 'yemek', 'mutfak', 'Türk mutfağı', 'AI tarif', 'yemek planı'],
+  keywords: ['tarif', 'yemek', 'mutfak', 'Türk mutfağı', 'AI tarif', 'yemek planı', 'ChefMate'],
+  metadataBase: new URL('https://chefmate-web-five.vercel.app'),
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
     siteName: 'ChefMate',
+    title: 'ChefMate — Mutfağınızın Dijital Asistanı',
+    description: 'AI destekli tarif önerileri, akıllı stok yönetimi ve yemek planlama.',
+    url: 'https://chefmate-web-five.vercel.app',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ChefMate',
+    description: 'AI destekli tarif önerileri ve akıllı mutfak yönetimi.',
+  },
+  manifest: '/manifest.json',
+  other: {
+    'theme-color': '#E8590C',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
   },
 };
 
@@ -43,6 +59,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

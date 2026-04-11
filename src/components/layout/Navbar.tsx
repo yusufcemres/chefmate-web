@@ -53,12 +53,12 @@ export function Navbar() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
-            <Link href="/tarif" className="p-2 rounded-full hover:bg-surface-low transition-colors">
+            <Link href="/tarif" className="p-2 rounded-full hover:bg-surface-low transition-colors" aria-label="Tarif ara">
               <Search className="w-5 h-5 text-text-secondary" />
             </Link>
             {isAuthenticated ? (
               <>
-                <Link href="/favoriler" className="p-2 rounded-full hover:bg-surface-low transition-colors">
+                <Link href="/favoriler" className="p-2 rounded-full hover:bg-surface-low transition-colors" aria-label="Favorilerim">
                   <Heart className="w-5 h-5 text-text-secondary" />
                 </Link>
                 <Link href="/profil" className="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-low text-sm font-medium hover:bg-surface-high transition-colors">
@@ -74,7 +74,7 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Menüyü kapat' : 'Menüyü aç'} aria-expanded={menuOpen}>
             {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
