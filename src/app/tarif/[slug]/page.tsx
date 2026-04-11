@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Clock, Flame, Users, Star, ChefHat, ArrowLeft } from 'lucide-react';
 import { CookButton } from '@/components/recipe/CookButton';
+import { FavoriteButton } from '@/components/recipe/FavoriteButton';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -104,8 +105,11 @@ export default async function RecipeDetailPage({ params }: Props) {
         <h1 className="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">{recipe.title}</h1>
         {recipe.description && <p className="text-lg text-text-secondary mb-6 leading-relaxed">{recipe.description}</p>}
 
+        {/* Favorite */}
+        <FavoriteButton recipeId={recipe.id} />
+
         {/* Meta badges */}
-        <div className="flex flex-wrap items-center gap-3 mb-8">
+        <div className="flex flex-wrap items-center gap-3 mt-4 mb-8">
           <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-low text-sm font-medium">
             <Clock className="w-4 h-4 text-primary" /> {recipe.totalTimeMinutes} dk
           </span>
