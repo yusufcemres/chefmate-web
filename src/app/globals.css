@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════
+   ChefMate Design Tokens — M3 Turuncu
+═══════════════════════════════════════════ */
+:root {
+  --primary: #E66B3D;
+  --primary-dark: #C45A2F;
+  --primary-dim: #D4603A;
+  --primary-container: #FFE0D4;
+  --on-primary: #FFFFFF;
+  --on-primary-container: #812B00;
+
+  --secondary: #8DAA3E;
+  --secondary-container: #E8F5CC;
+  --on-secondary: #FFFFFF;
+  --on-secondary-container: #3E5000;
+
+  --tertiary: #695B00;
+  --tertiary-container: #FAE048;
+
+  --background: #FBF6EF;
+  --surface: #FBF6EF;
+  --surface-container-lowest: #FFFFFF;
+  --surface-container-low: #F5F0E9;
+  --surface-container: #ECE8E0;
+  --surface-container-high: #E7E2DA;
+  --surface-container-highest: #E1DCD4;
+  --card: #FFFFFF;
+
+  --text: #302F2A;
+  --text-secondary: #5E5B56;
+  --text-muted: #797671;
+  --text-inverse: #FFFFFF;
+
+  --border: #B0ADA6;
+  --border-light: #E1DCD4;
+  --outline: #797671;
+
+  --success: #8DAA3E;
+  --warning: #695B00;
+  --error: #B02500;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(230,107,61,0.06);
+  --shadow-md: 0 8px 24px rgba(230,107,61,0.08);
+  --shadow-lg: 0 16px 48px rgba(230,107,61,0.12);
+}
+
+.dark {
+  --primary: #FFB59B;
+  --primary-dark: #FFB59B;
+  --primary-dim: #FF8B65;
+  --primary-container: #812B00;
+  --on-primary: #4E1600;
+  --on-primary-container: #FFE0D4;
+
+  --secondary: #D7F881;
+  --secondary-container: #394B00;
+  --on-secondary: #1D2600;
+
+  --tertiary: #E0C535;
+  --tertiary-container: #4E4300;
+
+  --background: #1A1C18;
+  --surface: #1A1C18;
+  --surface-container-lowest: #111210;
+  --surface-container-low: #222420;
+  --surface-container: #2A2C28;
+  --surface-container-high: #343632;
+  --surface-container-highest: #3F413C;
+  --card: #2A2C28;
+
+  --text: #E1DCD4;
+  --text-secondary: #A09C96;
+  --text-muted: #797671;
+  --text-inverse: #302F2A;
+
+  --border: #5E5B56;
+  --border-light: #3F413C;
+  --outline: #A09C96;
+
+  --success: #D7F881;
+  --warning: #E0C535;
+  --error: #FF5449;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-tertiary: var(--tertiary);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-low: var(--surface-container-low);
+  --color-surface-high: var(--surface-container-high);
+  --color-card: var(--card);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --font-heading: var(--font-jakarta);
+  --font-body: var(--font-manrope);
+}
+
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+/* ═══════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════ */
+.glass {
+  background: rgba(251, 246, 239, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.dark .glass {
+  background: rgba(26, 28, 24, 0.85);
+}
+
+.hover-lift {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hide scrollbar for carousels */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
