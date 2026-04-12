@@ -21,15 +21,20 @@ export default async function CollectionsPage() {
   } catch {}
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-16">
-      <h1 className="font-heading text-3xl font-extrabold tracking-tight mb-2">Koleksiyonlar</h1>
-      <p className="text-text-muted mb-8">Özenle seçilmiş tarif koleksiyonları</p>
+    <div className="max-w-screen-2xl mx-auto px-8 pt-32 pb-24">
+      <div className="mb-12 max-w-3xl">
+        <span className="inline-block text-xs font-heading font-bold uppercase tracking-[0.2em] text-primary-dark mb-4">
+          Seçkiler
+        </span>
+        <h1 className="font-heading text-5xl lg:text-6xl font-extrabold tracking-tighter leading-[1.05] mb-4">Koleksiyonlar</h1>
+        <p className="text-text-secondary text-lg">Özenle seçilmiş tarif koleksiyonları.</p>
+      </div>
 
       {collections.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {collections.map(col => (
-            <Link key={col.id} href={`/koleksiyon/${col.slug}`} className="group bg-card rounded-2xl border border-border-light overflow-hidden hover:shadow-lg transition-all hover:-translate-y-0.5">
-              <div className="relative aspect-[16/9]">
+            <Link key={col.id} href={`/koleksiyon/${col.slug}`} className="group bg-card rounded-2xl border border-border-light/40 overflow-hidden hover-lift">
+              <div className="relative aspect-[4/3]">
                 {col.imageUrl ? (
                   <Image src={col.imageUrl} alt={col.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 ) : (
@@ -37,10 +42,12 @@ export default async function CollectionsPage() {
                     <ChefHat className="w-10 h-10 text-text-muted/20" />
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h2 className="font-heading font-bold text-white text-lg">{col.name}</h2>
-                  <p className="text-white/70 text-xs mt-0.5">{col.recipes?.length || 0} tarif</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <span className="block text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-primary-dark mb-2">
+                    {col.recipes?.length || 0} tarif
+                  </span>
+                  <h2 className="font-heading font-extrabold text-text text-2xl tracking-tight leading-tight">{col.name}</h2>
                 </div>
               </div>
               {col.description && (

@@ -48,8 +48,13 @@ export default function ProfilePage() {
   if (!isAuthenticated) return null;
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 pt-24 pb-16">
-      <h1 className="font-heading text-3xl font-extrabold mb-8">Profilim</h1>
+    <div className="max-w-3xl mx-auto px-8 pt-32 pb-24">
+      <div className="mb-12">
+        <span className="inline-block text-xs font-heading font-bold uppercase tracking-[0.2em] text-primary-dark mb-4">
+          Hesap
+        </span>
+        <h1 className="font-heading text-5xl lg:text-6xl font-extrabold tracking-tighter leading-[1.05]">Profilim</h1>
+      </div>
 
       {loading ? (
         <div className="space-y-4">

@@ -5,37 +5,37 @@
 ═══════════════════════════════════════════ */
 :root {
   --primary: #E66B3D;
-  --primary-dark: #C45A2F;
-  --primary-dim: #D4603A;
-  --primary-container: #FFE0D4;
-  --on-primary: #FFFFFF;
-  --on-primary-container: #812B00;
+  --primary-dark: #FFB59C;
+  --primary-dim: #FF8B65;
+  --primary-container: #E76C3E;
+  --on-primary: #5C1A00;
+  --on-primary-container: #501500;
 
-  --secondary: #8DAA3E;
-  --secondary-container: #E8F5CC;
-  --on-secondary: #FFFFFF;
-  --on-secondary-container: #3E5000;
+  --secondary: #E2BFB2;
+  --secondary-container: #5A4137;
+  --on-secondary: #412B22;
+  --on-secondary-container: #CFAEA1;
 
-  --tertiary: #695B00;
-  --tertiary-container: #FAE048;
+  --tertiary: #BCCBB3;
+  --tertiary-container: #87957F;
 
-  --background: #FBF6EF;
-  --surface: #FBF6EF;
-  --surface-container-lowest: #FFFFFF;
-  --surface-container-low: #F5F0E9;
-  --surface-container: #ECE8E0;
-  --surface-container-high: #E7E2DA;
-  --surface-container-highest: #E1DCD4;
-  --card: #FFFFFF;
+  --background: #131313;
+  --surface: #131313;
+  --surface-container-lowest: #0E0E0E;
+  --surface-container-low: #1C1B1B;
+  --surface-container: #20201F;
+  --surface-container-high: #2A2A2A;
+  --surface-container-highest: #353535;
+  --card: #1C1B1B;
 
-  --text: #302F2A;
-  --text-secondary: #5E5B56;
-  --text-muted: #797671;
-  --text-inverse: #FFFFFF;
+  --text: #E5E2E1;
+  --text-secondary: #DFC0B6;
+  --text-muted: #A68B82;
+  --text-inverse: #131313;
 
-  --border: #B0ADA6;
-  --border-light: #E1DCD4;
-  --outline: #797671;
+  --border: #57423B;
+  --border-light: #57423B;
+  --outline: #A68B82;
 
   --success: #8DAA3E;
   --warning: #695B00;
@@ -140,13 +140,13 @@ h1, h2, h3, h4, h5, h6 {
    UTILITIES
 ═══════════════════════════════════════════ */
 .glass {
-  background: rgba(251, 246, 239, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(19, 19, 19, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.dark .glass {
-  background: rgba(26, 28, 24, 0.85);
+.editorial-shadow {
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
 }
 
 .hover-lift {

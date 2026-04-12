@@ -114,19 +114,20 @@ export default function CookingModePage() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Top bar */}
-      <div className="fixed top-0 w-full z-50 bg-card border-b border-border-light">
-        <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-          <button onClick={() => router.back()} className="flex items-center gap-1 text-sm text-text-muted hover:text-primary">
-            <X className="w-5 h-5" /> Çık
+      <div className="fixed top-0 w-full z-50 glass border-b border-border-light/40">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+          <button onClick={() => router.back()} className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-[0.15em] text-text-muted hover:text-primary-dark">
+            <X className="w-4 h-4" /> Çık
           </button>
-          <h1 className="font-heading font-bold text-sm truncate max-w-[200px]">{recipe.title}</h1>
-          <span className="text-xs text-text-muted font-medium">
-            {currentStep + 1} / {steps.length}
+          <span className="font-heading font-extrabold text-primary-dark text-sm tracking-[0.2em] uppercase truncate">
+            ChefMate
+          </span>
+          <span className="text-xs font-heading font-bold tracking-[0.15em] uppercase text-text-secondary">
+            Adım {String(currentStep + 1).padStart(2, '0')} / {String(steps.length).padStart(2, '0')}
           </span>
         </div>
-        {/* Progress bar */}
-        <div className="h-1 bg-surface-low">
-          <div className="h-full bg-primary transition-all duration-300" style={{ width: `${progress}%` }} />
+        <div className="h-1 bg-surface-container-low">
+          <div className="h-full bg-primary-container transition-all duration-300" style={{ width: `${progress}%` }} />
         </div>
       </div>
 
@@ -168,15 +169,15 @@ export default function CookingModePage() {
           {/* Current step */}
           <div className="lg:col-span-2 order-1 lg:order-2">
             {step && (
-              <div className="bg-card rounded-2xl border border-border-light p-6 min-h-[300px] flex flex-col">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">
-                    {step.stepNumber}
+              <div className="bg-surface-container-low rounded-3xl p-10 min-h-[360px] flex flex-col editorial-shadow">
+                <div className="flex items-baseline gap-6 mb-8">
+                  <span className="font-heading text-7xl font-extrabold tracking-tighter text-primary-dark opacity-25 leading-none">
+                    {String(step.stepNumber).padStart(2, '0')}
                   </span>
-                  <span className="text-xs text-text-muted font-medium">Adım {step.stepNumber}</span>
+                  <span className="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-primary-dark">Şimdi</span>
                 </div>
 
-                <p className="text-lg leading-relaxed flex-1">{step.instruction}</p>
+                <p className="text-2xl leading-relaxed flex-1 text-text font-heading">{step.instruction}</p>
 
                 {step.tip && (
                   <p className="mt-4 text-sm text-text-muted italic bg-surface-low rounded-lg p-3">
@@ -273,16 +274,16 @@ export default function CookingModePage() {
           {currentStep === steps.length - 1 ? (
             <button
               onClick={() => router.push(`/tarif/${params.slug}`)}
-              className="flex items-center gap-1 px-6 py-2.5 rounded-full bg-success text-white text-sm font-bold"
+              className="flex items-center gap-2 px-8 py-4 rounded-xl bg-primary-container text-text text-xs font-heading font-extrabold uppercase tracking-[0.15em]"
             >
               <Check className="w-4 h-4" /> Tamamla
             </button>
           ) : (
             <button
               onClick={() => setCurrentStep(prev => Math.min(prev + 1, steps.length - 1))}
-              className="flex items-center gap-1 px-6 py-2.5 rounded-full bg-primary text-on-primary text-sm font-bold"
+              className="flex items-center gap-2 px-8 py-4 rounded-xl bg-primary-container text-text text-xs font-heading font-extrabold uppercase tracking-[0.15em]"
             >
-              Sonraki <ArrowRight className="w-4 h-4" />
+              Devam Et <ArrowRight className="w-4 h-4" />
             </button>
           )}
         </div>

@@ -20,31 +20,28 @@ export function Navbar() {
 
   return (
     <header className={`fixed top-0 w-full z-50 glass border-b border-border-light/30 transition-shadow ${scrolled ? 'shadow-md' : ''}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-screen-2xl mx-auto px-8">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <ChefHat className="w-7 h-7 text-primary" />
-            <span className="font-heading text-xl font-extrabold text-primary tracking-tight">ChefMate</span>
+            <ChefHat className="w-7 h-7 text-primary-dark" />
+            <span className="font-heading text-2xl font-extrabold text-primary-dark tracking-[0.15em] uppercase">ChefMate</span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/tarif" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
-              Tarifler
+          <nav className="hidden md:flex items-center gap-10">
+            <Link href="/tarif" className="text-sm font-heading font-bold text-text hover:text-primary-dark transition-colors">
+              Keşfet
             </Link>
-            <Link href="/etiket/turk-mutfagi" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
-              Mutfaklar
-            </Link>
-            <Link href="/koleksiyon" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
+            <Link href="/koleksiyon" className="text-sm font-heading font-bold text-text-secondary hover:text-primary-dark transition-colors">
               Koleksiyonlar
             </Link>
             {isAuthenticated && (
               <>
-                <Link href="/stok" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
-                  Stoğum
+                <Link href="/stok" className="text-sm font-heading font-bold text-text-secondary hover:text-primary-dark transition-colors">
+                  Mutfağım
                 </Link>
-                <Link href="/plan" className="text-sm font-semibold uppercase tracking-widest text-text-muted hover:text-primary transition-colors">
+                <Link href="/plan" className="text-sm font-heading font-bold text-text-secondary hover:text-primary-dark transition-colors">
                   Planla
                 </Link>
               </>
@@ -53,8 +50,9 @@ export function Navbar() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
-            <Link href="/tarif" className="p-2 rounded-full hover:bg-surface-low transition-colors" aria-label="Tarif ara">
-              <Search className="w-5 h-5 text-text-secondary" />
+            <Link href="/tarif" className="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-low hover:bg-surface-high transition-colors" aria-label="Tarif ara">
+              <Search className="w-4 h-4 text-text-secondary" />
+              <span className="text-xs text-text-muted">Tarif ara…</span>
             </Link>
             {isAuthenticated ? (
               <>

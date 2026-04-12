@@ -69,7 +69,7 @@ export default function OnboardingPage() {
       </div>
       <div className="flex flex-wrap justify-center gap-3">
         {CUISINES.map(c => (
-          <button key={c} onClick={() => toggleCuisine(c)} className={clsx('px-5 py-2.5 rounded-full text-sm font-semibold transition-all', cuisines.includes(c) ? 'bg-primary text-on-primary scale-105' : 'bg-surface-low hover:bg-surface-high')}>
+          <button key={c} onClick={() => toggleCuisine(c)} className={clsx('px-5 py-2.5 rounded-full text-sm font-semibold transition-all', cuisines.includes(c) ? 'bg-primary-container text-text scale-105' : 'bg-surface-low hover:bg-surface-high')}>
             {c}
           </button>
         ))}
@@ -84,7 +84,7 @@ export default function OnboardingPage() {
       </div>
       <div className="flex flex-wrap justify-center gap-3">
         {DIETARY_OPTIONS.map(d => (
-          <button key={d.key} onClick={() => toggleDietary(d.key)} className={clsx('px-5 py-2.5 rounded-full text-sm font-semibold transition-all', dietary[d.key] ? 'bg-primary text-on-primary scale-105' : 'bg-surface-low hover:bg-surface-high')}>
+          <button key={d.key} onClick={() => toggleDietary(d.key)} className={clsx('px-5 py-2.5 rounded-full text-sm font-semibold transition-all', dietary[d.key] ? 'bg-primary-container text-text scale-105' : 'bg-surface-low hover:bg-surface-high')}>
             {d.emoji} {d.label}
           </button>
         ))}
@@ -109,7 +109,7 @@ export default function OnboardingPage() {
       </div>
       <div className="flex flex-col gap-3 max-w-xs mx-auto">
         {SKILL_LEVELS.map(s => (
-          <button key={s.value} onClick={() => setSkill(s.value)} className={clsx('flex items-center gap-3 p-4 rounded-2xl text-left transition-all', skill === s.value ? 'bg-primary text-on-primary scale-[1.02]' : 'bg-surface-low hover:bg-surface-high')}>
+          <button key={s.value} onClick={() => setSkill(s.value)} className={clsx('flex items-center gap-3 p-4 rounded-2xl text-left transition-all', skill === s.value ? 'bg-primary-container text-text scale-[1.02]' : 'bg-surface-low hover:bg-surface-high')}>
             <span className="text-2xl">{s.emoji}</span>
             <span className="font-semibold">{s.label}</span>
           </button>
@@ -122,12 +122,12 @@ export default function OnboardingPage() {
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
       {/* Progress */}
       <div className="flex items-center gap-2 mb-8">
-        <ChefHat className="w-8 h-8 text-primary" />
-        <span className="font-heading font-extrabold text-primary text-lg">ChefMate</span>
+        <ChefHat className="w-8 h-8 text-primary-dark" />
+        <span className="font-heading font-extrabold text-primary-dark text-xl tracking-[0.15em] uppercase">ChefMate</span>
       </div>
       <div className="flex gap-2 mb-10">
         {steps.map((_, i) => (
-          <div key={i} className={clsx('w-16 h-1.5 rounded-full transition-colors', i <= step ? 'bg-primary' : 'bg-border-light')} />
+          <div key={i} className={clsx('w-16 h-1.5 rounded-full transition-colors', i <= step ? 'bg-primary-container' : 'bg-border-light')} />
         ))}
       </div>
 
@@ -141,12 +141,12 @@ export default function OnboardingPage() {
             <button onClick={() => { handleFinish(); }} className="text-sm text-text-muted hover:text-primary transition-colors">
               Atla
             </button>
-            <button onClick={() => setStep(s => s + 1)} className="flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-on-primary font-bold text-sm">
+            <button onClick={() => setStep(s => s + 1)} className="flex items-center gap-2 px-8 py-3 rounded-full bg-primary-container text-text font-bold text-sm">
               Devam <ArrowRight className="w-4 h-4" />
             </button>
           </>
         ) : (
-          <button onClick={handleFinish} disabled={saving} className="flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-on-primary font-bold text-sm disabled:opacity-50">
+          <button onClick={handleFinish} disabled={saving} className="flex items-center gap-2 px-8 py-3 rounded-full bg-primary-container text-text font-bold text-sm disabled:opacity-50">
             {saving ? 'Kaydediliyor...' : <><Sparkles className="w-4 h-4" /> Başlayalım</>}
           </button>
         )}

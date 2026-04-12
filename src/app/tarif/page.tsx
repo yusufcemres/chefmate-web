@@ -27,24 +27,28 @@ export default async function RecipeListPage({ searchParams }: Props) {
   const data = await getRecipes(params).catch(() => ({ items: [], nextCursor: null, hasMore: false }));
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16">
-      <h1 className="font-heading text-3xl font-extrabold mb-2">
-        {params.q ? `"${params.q}" için sonuçlar` : 'Tüm Tarifler'}
-      </h1>
-      <p className="text-text-muted mb-8">{data.items.length} tarif bulundu</p>
+    <div className="max-w-screen-2xl mx-auto px-8 pt-32 pb-24">
+      <div className="mb-12 max-w-3xl">
+        <span className="inline-block text-xs font-heading font-bold uppercase tracking-[0.2em] text-primary-dark mb-4">
+          Keşfet
+        </span>
+        <h1 className="font-heading text-5xl lg:text-6xl font-extrabold tracking-tighter leading-[1.05] mb-4 text-text">
+          {params.q ? `"${params.q}"` : 'Tüm Tarifler'}
+        </h1>
+        <p className="text-text-secondary text-lg">{data.items.length} tarif — özenle seçildi.</p>
+      </div>
 
       <SearchBar initialQuery={params.q} />
 
       {data.items.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-12">
           {data.items.map((recipe) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
         </div>
       ) : (
-        <div className="text-center py-16">
-          <p className="text-5xl mb-4">🍳</p>
-          <h2 className="font-heading text-xl font-bold mb-2">Tarif bulunamadı</h2>
+        <div className="text-center py-24">
+          <h2 className="font-heading text-2xl font-extrabold mb-2">Tarif bulunamadı</h2>
           <p className="text-text-muted">Farklı anahtar kelimeler deneyin.</p>
         </div>
       )}

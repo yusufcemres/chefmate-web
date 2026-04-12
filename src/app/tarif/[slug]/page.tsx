@@ -95,22 +95,34 @@ export default async function RecipeDetailPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 pt-20 pb-16">
+      <article className="max-w-screen-2xl mx-auto px-8 pt-28 pb-24">
         {/* Back */}
-        <Link href="/" className="inline-flex items-center gap-1 text-sm text-text-muted hover:text-primary mb-6 transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Tariflere Dön
+        <Link href="/tarif" className="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-[0.15em] text-text-muted hover:text-primary-dark mb-10 transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Keşfete Dön
         </Link>
 
         {/* Hero image */}
         {recipe.imageUrl && (
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-8 shadow-lg">
-            <Image src={recipe.imageUrl} alt={recipe.title} fill className="object-cover" sizes="(max-width: 896px) 100vw, 896px" priority />
+          <div className="relative aspect-[21/9] rounded-2xl overflow-hidden mb-12 editorial-shadow">
+            <Image src={recipe.imageUrl} alt={recipe.title} fill className="object-cover" sizes="100vw" priority />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-12 max-w-4xl">
+              {recipe.tags?.find(t => t.tag?.type === 'CUISINE') && (
+                <span className="inline-block text-xs font-heading font-bold uppercase tracking-[0.2em] text-primary-dark mb-4">
+                  {recipe.tags.find(t => t.tag?.type === 'CUISINE')?.tag.name}
+                </span>
+              )}
+              <h1 className="font-heading text-5xl lg:text-6xl font-extrabold tracking-tighter leading-[1.05] text-text">
+                {recipe.title}
+              </h1>
+            </div>
           </div>
         )}
 
-        {/* Title + meta */}
-        <h1 className="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">{recipe.title}</h1>
-        {recipe.description && <p className="text-lg text-text-secondary mb-6 leading-relaxed">{recipe.description}</p>}
+        {!recipe.imageUrl && (
+          <h1 className="font-heading text-5xl lg:text-6xl font-extrabold tracking-tighter leading-[1.05] mb-6">{recipe.title}</h1>
+        )}
+        {recipe.description && <p className="text-xl text-text-secondary max-w-3xl mb-8 leading-relaxed italic">{recipe.description}</p>}
 
         {/* Favorite */}
         <FavoriteButton recipeId={recipe.id} />
@@ -233,23 +245,23 @@ export default async function RecipeDetailPage({ params }: Props) {
 
           {/* Steps */}
           <div className="lg:col-span-2">
-            <h2 className="font-heading text-lg font-bold mb-6">Yapılış</h2>
-            <ol className="space-y-6">
+            <h2 className="font-heading text-3xl font-extrabold tracking-tighter mb-10">Yapılış</h2>
+            <ol className="space-y-10">
               {recipe.steps?.map((step) => (
-                <li key={step.id} className="flex gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold">
-                    {step.stepNumber}
+                <li key={step.id} className="flex gap-8 pb-10 border-b border-border-light/30 last:border-0">
+                  <span className="flex-shrink-0 font-heading text-6xl font-extrabold tracking-tighter text-primary-dark opacity-25 leading-none w-20">
+                    {String(step.stepNumber).padStart(2, '0')}
                   </span>
-                  <div className="flex-1 pt-1">
-                    <p className="text-base leading-relaxed">{step.instruction}</p>
+                  <div className="flex-1 pt-2">
+                    <p className="text-lg leading-relaxed text-text">{step.instruction}</p>
                     {step.tip && (
-                      <p className="mt-2 text-sm text-text-muted italic bg-surface-low rounded-lg p-3">
-                        💡 {step.tip}
+                      <p className="mt-4 text-sm text-text-secondary italic bg-surface-container-low rounded-xl p-4 border-l-2 border-primary-dark">
+                        {step.tip}
                       </p>
                     )}
                     {step.stepDurationMinutes && (
-                      <span className="inline-flex items-center gap-1 mt-2 text-xs text-primary font-medium">
-                        <Clock className="w-3 h-3" /> {step.stepDurationMinutes} dk
+                      <span className="inline-flex items-center gap-1.5 mt-3 text-xs font-heading font-bold uppercase tracking-[0.15em] text-primary-dark">
+                        <Clock className="w-3.5 h-3.5" /> {step.stepDurationMinutes} dk
                       </span>
                     )}
                   </div>
