@@ -4,7 +4,25 @@ import { RecipeCard } from '@/components/recipe/RecipeCard';
 import { HeroSection } from '@/components/layout/HeroSection';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ExternalLink, Star } from 'lucide-react';
+import {
+  ExternalLink,
+  Star,
+  Soup,
+  UtensilsCrossed,
+  Salad,
+  CakeSlice,
+  Coffee,
+  Flame,
+  Fish,
+  Beef,
+  Drumstick,
+  Carrot,
+  Wheat,
+  Pizza,
+  ChefHat,
+  Cookie,
+  type LucideIcon,
+} from 'lucide-react';
 
 async function getTrending() {
   return fetchApi<Recipe[]>('/recipes/trending?limit=6');
@@ -18,18 +36,37 @@ async function getCategories() {
   return fetchApi<Tag[]>('/tags?type=CATEGORY');
 }
 
-const CATEGORY_PALETTE: Record<string, { bg: string; text: string }> = {
-  et: { bg: '#2B1810', text: '#FFB59C' },
-  sebze: { bg: '#1A2616', text: '#BCCBB3' },
-  tatli: { bg: '#241A2B', text: '#D8E7CE' },
-  corba: { bg: '#2B2410', text: '#FFDB9C' },
+const CATEGORY_META: Record<
+  string,
+  { icon: LucideIcon; bg: string; text: string; accent: string }
+> = {
+  'corba':            { icon: Soup,            bg: '#2B2410', text: '#FFDB9C', accent: '#FFB547' },
+  'ana-yemek':        { icon: UtensilsCrossed, bg: '#2B1810', text: '#FFB59C', accent: '#FF8A65' },
+  'meze':             { icon: Cookie,          bg: '#1F1A2B', text: '#C8BCE0', accent: '#9E84D9' },
+  'salata':           { icon: Salad,           bg: '#1A2616', text: '#BCCBB3', accent: '#8BB67A' },
+  'tatli':            { icon: CakeSlice,       bg: '#2B1A25', text: '#F2C8DC', accent: '#E07BA0' },
+  'kahvaltilik':      { icon: Coffee,          bg: '#2B2010', text: '#EFD29C', accent: '#D4A450' },
+  'kebap':            { icon: Flame,           bg: '#2B1510', text: '#FFB59C', accent: '#FF6B3D' },
+  'kofte':            { icon: Beef,            bg: '#2B1810', text: '#FFB59C', accent: '#FF7B55' },
+  'pilav':            { icon: Wheat,           bg: '#2B2510', text: '#F0D99C', accent: '#D4B560' },
+  'makarna-tarifleri':{ icon: UtensilsCrossed, bg: '#2B2010', text: '#F5C89C', accent: '#E09F50' },
+  'balik':            { icon: Fish,            bg: '#0F2028', text: '#9CCBE0', accent: '#5CA8C9' },
+  'deniz-urunleri':   { icon: Fish,            bg: '#0F2028', text: '#9CCBE0', accent: '#5CA8C9' },
+  'et-yemekleri':     { icon: Beef,            bg: '#2B1410', text: '#FFA08C', accent: '#FF5A3D' },
+  'tavuk-yemekleri':  { icon: Drumstick,       bg: '#2B2210', text: '#F5D29C', accent: '#E0A850' },
+  'sebze-yemekleri':  { icon: Carrot,          bg: '#1A2616', text: '#BCCBB3', accent: '#7BAD66' },
+  'hamur-isi':        { icon: Wheat,           bg: '#2B2515', text: '#F0D9A8', accent: '#D4A860' },
+  'borek':            { icon: Wheat,           bg: '#2B2515', text: '#F0D9A8', accent: '#D4A860' },
+  'pide-lahmacun':    { icon: Pizza,           bg: '#2B1510', text: '#FFB59C', accent: '#FF6B3D' },
 };
 
-function paletteFor(slug: string) {
+function metaFor(slug: string) {
   return (
-    CATEGORY_PALETTE[slug] || {
+    CATEGORY_META[slug] || {
+      icon: ChefHat,
       bg: '#1A1A1A',
-      text: 'rgba(229, 226, 225, 0.6)',
+      text: 'rgba(229, 226, 225, 0.85)',
+      accent: 'rgba(229, 226, 225, 0.6)',
     }
   );
 }
@@ -51,18 +88,24 @@ export default async function HomePage() {
       {/* Category Pills */}
       {categories.length > 0 && (
         <section className="max-w-screen-2xl mx-auto px-8 mb-20">
-          <div className="flex items-center gap-4 overflow-x-auto pb-4 no-scrollbar">
+          <div className="flex items-center gap-3 overflow-x-auto pb-4 no-scrollbar">
             {categories.map((cat) => {
-              const p = paletteFor(cat.slug);
+              const m = metaFor(cat.slug);
+              const Icon = m.icon;
               return (
                 <Link
                   key={cat.id}
                   href={`/tarif?tag=${cat.slug}`}
-                  className="flex-none px-8 py-3 rounded-full font-heading font-bold hover:brightness-125 transition-all whitespace-nowrap"
-                  style={{ background: p.bg, color: p.text }}
+                  className="group flex-none inline-flex items-center gap-3 pl-4 pr-6 py-3 rounded-full font-heading font-bold text-sm tracking-wide whitespace-nowrap border border-white/5 hover:border-white/15 hover:brightness-125 transition-all"
+                  style={{ background: m.bg, color: m.text }}
                 >
-                  {cat.emoji ? `${cat.emoji} ` : ''}
-                  {cat.name}
+                  <span
+                    className="flex items-center justify-center w-8 h-8 rounded-full"
+                    style={{ background: 'rgba(0,0,0,0.35)' }}
+                  >
+                    <Icon className="w-4 h-4" style={{ color: m.accent }} strokeWidth={2.25} />
+                  </span>
+                  <span className="uppercase tracking-[0.12em]">{cat.name}</span>
                 </Link>
               );
             })}
