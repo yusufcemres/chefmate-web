@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#5a4137",
+                        "on-tertiary-fixed-variant": "#3d4a38",
+                        "on-primary-fixed": "#380c00",
+                        "surface-tint": "#ffb59c",
+                        "primary": "#ffb59c",
+                        "surface-container-high": "#2a2a2a",
+                        "outline-variant": "#57423b",
+                        "outline": "#a68b82",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#353535",
+                        "primary-fixed-dim": "#ffb59c",
+                        "tertiary-fixed-dim": "#bccbb3",
+                        "tertiary-container": "#87957f",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#cfaea1",
+                        "on-secondary-fixed-variant": "#5a4137",
+                        "secondary-fixed-dim": "#e2bfb2",
+                        "on-tertiary-fixed": "#131f0f",
+                        "on-primary-container": "#501500",
+                        "surface-dim": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-container": "#e76c3e",
+                        "on-tertiary-container": "#212d1c",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary": "#273423",
+                        "on-secondary": "#412b22",
+                        "background": "#131313",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#e2bfb2",
+                        "surface-container": "#20201f",
+                        "tertiary-fixed": "#d8e7ce",
+                        "surface": "#131313",
+                        "primary-fixed": "#ffdbcf",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#2a170f",
+                        "inverse-primary": "#a53c10",
+                        "surface-variant": "#353535",
+                        "surface-bright": "#393939",
+                        "on-surface-variant": "#dfc0b6",
+                        "on-primary-fixed-variant": "#822800",
+                        "secondary-fixed": "#ffdbcd",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#313030",
+                        "on-primary": "#5c1a00",
+                        "tertiary": "#bccbb3",
+                        "inverse-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background: rgba(19, 19, 19, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-[#131313]">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-extrabold text-[#E66B3D] tracking-tighter font-headline">ChefMate</span>
+<nav class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+<a class="text-[#E66B3D] border-b-2 border-[#E66B3D] pb-1" href="#">Explore</a>
+<a class="text-[#E5E2E1] hover:text-[#FFB59C] transition-colors" href="#">My Kitchen</a>
+<a class="text-[#E5E2E1] hover:text-[#FFB59C] transition-colors" href="#">Profile</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-outline text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface w-64 placeholder:text-outline/50" placeholder="Tariflerde ara..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface hover:bg-[#353535] rounded-md transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface hover:bg-[#353535] rounded-md transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container/20">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="close-up portrait of a professional chef smiling in a high-end dark kitchen setting with warm ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp8x8pgiWabr1O4VhP9du9luejiGVOmSHC0ktRE8FBtVB3H9wOIVkE3tw6SwE27vaqtVkOnD_vf-gdCSob4HB81zxrXKoDO7paQdiuvR5wuiwLOfcwXJzD8WeweSTnZmUhdq_OFZde5AeIKFUrIgX6NleR8BSSRT3hfQn5gLlKtsNhB8UZdOIkbqUt_T-ADMwo79qy1joo6K_r1Qqm2d8rmXb0L6ZQc8u8-rx-p2UZfNhFP0FsZ3qCTofBc-OisZnN-YP7Id-BZbg"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto px-8 py-12">
+<!-- Hero Section: Bugün Bunu Pişir -->
+<section class="mb-20">
+<div class="relative group overflow-hidden rounded-xl bg-surface-container-low min-h-[480px] flex items-center p-12 editorial-shadow">
+<div class="z-10 max-w-xl">
+<span class="inline-block px-4 py-1 rounded-full bg-primary-container/20 text-primary font-bold text-xs uppercase tracking-widest mb-6">Günün Seçimi</span>
+<h1 class="text-6xl font-headline font-extrabold text-on-surface mb-6 leading-[1.1] tracking-tighter">Bugün bunu pişir</h1>
+<p class="text-xl text-on-surface-variant mb-8 leading-relaxed max-w-md">Nar ekşili ve cevizli közlenmiş patlıcan salatası. Mevsimin en taze lezzetleriyle soframıza konuk oluyor.</p>
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-headline font-extrabold flex items-center gap-3 hover:scale-[1.02] transition-transform active:scale-95">
+                        Tarifi İncele
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Asymmetric Food Illustration Mockup -->
+<div class="absolute -right-20 top-1/2 -translate-y-1/2 w-3/5 h-[120%] rotate-6 pointer-events-none transition-transform duration-700 group-hover:rotate-3">
+<img alt="Curated food illustration" class="w-full h-full object-cover rounded-full mix-blend-lighten opacity-80" data-alt="minimalist flat lay of a gourmet salad with grilled eggplants and pomegranate seeds on a rustic dark ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB852cMojjSOTNiKB4wCcbd76Q623oLOTRTEbVVxUzVGSAwM41bjqvzhveY6tAsW6WOqcd3Cc5L-9ENKXbyZaveza1lhczLWjC5X-AQbj45O1jSuDRSDqku_EKfjA0hIrESet9Qv7uT8ncMJv-0wJiAoBlLvuXMnagsxB6sY0JSmovx314pC8BRsTyIma96wT2qL5vzQTYrNeXP8LgIWMcLctfoC3sWoRjb6XihmEolcckgAUcoN79bLWWWNenmekYE5u38GXH5a4I"/>
+</div>
+</div>
+</section>
+<!-- Category Pills -->
+<section class="mb-20">
+<div class="flex items-center gap-4 overflow-x-auto pb-4 no-scrollbar">
+<button class="flex-none px-8 py-3 rounded-full bg-[#2B1810] text-[#FFB59C] font-headline font-bold hover:brightness-125 transition-all">Et</button>
+<button class="flex-none px-8 py-3 rounded-full bg-[#1A2616] text-[#BCCBB3] font-headline font-bold hover:brightness-125 transition-all">Sebze</button>
+<button class="flex-none px-8 py-3 rounded-full bg-[#241A2B] text-[#D8E7CE] font-headline font-bold hover:brightness-125 transition-all">Tatlı</button>
+<button class="flex-none px-8 py-3 rounded-full bg-[#2B2410] text-[#FFDB9C] font-headline font-bold hover:brightness-125 transition-all">Çorba</button>
+<button class="flex-none px-8 py-3 rounded-full bg-[#1A1A1A] text-on-surface/60 font-headline font-bold border border-outline-variant/20 hover:text-on-surface transition-all">Deniz Ürünleri</button>
+<button class="flex-none px-8 py-3 rounded-full bg-[#1A1A1A] text-on-surface/60 font-headline font-bold border border-outline-variant/20 hover:text-on-surface transition-all">Makarna</button>
+<button class="flex-none px-8 py-3 rounded-full bg-[#1A1A1A] text-on-surface/60 font-headline font-bold border border-outline-variant/20 hover:text-on-surface transition-all">Kahvaltı</button>
+</div>
+</section>
+<!-- Horizontal Rails -->
+<div class="space-y-24">
+<!-- Önerilen (Recommended) -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<h2 class="text-4xl font-headline font-extrabold tracking-tighter">Önerilen</h2>
+<a class="text-primary font-bold hover:underline flex items-center gap-2" href="#">Tümünü Gör <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Recipe Card 1 -->
+<div class="group bg-surface-container-low rounded-xl overflow-hidden transition-all hover:translate-y-[-8px]">
+<div class="relative h-64 overflow-hidden">
+<img alt="Recipe Card" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="top-down artistic shot of a colorful healthy bowl with quinoa, avocado and roasted chickpeas on a charcoal surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChEpx2ZCIheBEyxbBkNyeP8qotBjJp3PUy6TbydgzQ_HqGRNRaEGkb7-KrAiTGGgLrmtDBKa7negE7vRxp7EGacZ5U0gPbvTpKbtbxHm2qI5jLWEzq8o_7k1CMdiYqGfnbIQX-53RYtPfu-VRYLB0YqNjJthbmqU-mcGMlOeNSn6j3hOeqN7c7Mm_GesTASleLOOvrCNYzJdPz_k3EvFABQi6j2nkkBW9sAN2jwlyMphCuYtcIgfAcbY7fMtANcnUZycslXDwIn8k"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-nav flex items-center justify-center text-on-surface hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-3 mb-3 text-xs text-primary font-bold uppercase tracking-tighter">
+<span>30 Dakika</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant/50"></span>
+<span>Orta Seviye</span>
+</div>
+<h3 class="text-2xl font-headline font-extrabold mb-4 group-hover:text-primary transition-colors">Gökkuşağı Kasesi</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Kinoa, avokado ve fırınlanmış nohut ile enerji dolu bir öğle yemeği.</p>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<span class="text-xl font-headline font-extrabold text-primary">₺145</span>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high overflow-hidden">
+<img alt="user" class="w-full h-full object-cover" data-alt="portrait of a woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRcyBRQtWI7aAf5mLk9QB8pKLxqpgxh4BTaWeJH1HpLiL8tqcsga2QPzKkMSpFK5WzoPMSiOaVg6Oj5hPyuik4ia8-oK0lKmqq6whU2RoHjqRkVO7NMmHwQ_ag-SjSxWV2jn8PLet_PVKQIpws_dpEbgRRnZg2Qhd0zqJqwfymWwkBxmZI-3HCj6qgd1PMkvTc4KHDCqDrlvRKFkDZuLpYIqA1D_lt3B7l93_L-TdapHbAN4iICpyFfWzvEWSlfk1BshnfRVIr1NM"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary-container flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recipe Card 2 (Editorial Asymmetric Style) -->
+<div class="group bg-surface-container-low rounded-xl overflow-hidden transition-all hover:translate-y-[-8px]">
+<div class="relative h-64 overflow-hidden">
+<img alt="Recipe Card" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="macro photo of a thin-crust artisan pizza with fresh mozzarella and basil leaves on dark stone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY4KNBYxTRMUNFkvBW02T8GE6s5N1r9Qh1Tdo8kv5qegATsh6YZb8nsuQNBXdyv91JCxHuztEfYZnAa9bDYhA1-3_1vSkEOzhNDbEdQkteRSaP63E9B-VcVmw6mwm4nBA2sR8pSgiqruxoRAzRfCbX-aYUjg8li-raJLu1ycYz3TQ3gokh-D07IKUvINZFz8tzvHnom2NtakmMDmCoQsPlqEfziChrGhqMCuZU25cnByqxayd6H-taedhgetPmT3Bz8tsMilg66E8"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-nav flex items-center justify-center text-on-surface hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-3 mb-3 text-xs text-primary font-bold uppercase tracking-tighter">
+<span>45 Dakika</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant/50"></span>
+<span>Zor Seviye</span>
+</div>
+<h3 class="text-2xl font-headline font-extrabold mb-4 group-hover:text-primary transition-colors">Napolitan Pizza</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Gerçek İtalyan hamuru ve taze fesleğen ile fırından yeni çıkmış lezzet.</p>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<span class="text-xl font-headline font-extrabold text-primary">₺180</span>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high overflow-hidden">
+<img alt="user" class="w-full h-full object-cover" data-alt="portrait of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKgXrePofOrFx6Td-mp4XUGDFQsAHMb4SU4N7gnp4mpfdG-13IxjD9Hosib3ASH3msDXnAUX-40IYxdUbYDYQrot0-XPMW27yAEIM4rvINezjZkw4CjTnOf_5ZD5E5pH9NtikliPN6NpRp03q4jFMe8eGxiclsc0PnoKB5njfbjmDNpZ_1uqRySIief_FaJepIt-hfhqxuywrgOpaMtT0by7Uqd1KiExKN6QT83ojb4onlqpfeUE0IuQ2lsO1SRczBHzLZM7L1E3o"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary-container flex items-center justify-center text-[10px] font-bold">+8</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recipe Card 3 -->
+<div class="group bg-surface-container-low rounded-xl overflow-hidden transition-all hover:translate-y-[-8px]">
+<div class="relative h-64 overflow-hidden">
+<img alt="Recipe Card" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="overhead shot of a fresh greek salad with feta cheese olives and red onions on a white ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM9YwAdC-7-n0nuDy8H_7yS3JrBkoBq1AmPmEdMnVpVjKAuCARGI2EYurqZWPJMOe1r_yCYUHvL1sldsQ2QjxlSD5E4GID9Zt7duyTmzshHYyQZRrbfrWeS6V1x9vG2oaWtHoTcTPWg3HLly1DJrCOo8cmLeFWeQBO1GCGEzUWlBdLsiXoPVTileYVqcBIbUbMsWcwuGy98kyTPU0vbJrRLRfM4-wsveBAXb9zSkM_zJ_cYbA9Mqb9VAVmm6Kqux6VxijX6iFKL58"/>
+<div class="absolute top-4 right-4 z-10">
+<button class="w-10 h-10 rounded-full glass-nav flex items-center justify-center text-on-surface hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-8">
+<div class="flex items-center gap-3 mb-3 text-xs text-primary font-bold uppercase tracking-tighter">
+<span>15 Dakika</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant/50"></span>
+<span>Kolay Seviye</span>
+</div>
+<h3 class="text-2xl font-headline font-extrabold mb-4 group-hover:text-primary transition-colors">Akdeniz Salatası</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Zeytinyağı ve taze kekikli klasik bir ferahlık dokunuşu.</p>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<span class="text-xl font-headline font-extrabold text-primary">₺95</span>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high overflow-hidden">
+<img alt="user" class="w-full h-full object-cover" data-alt="portrait of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdtGkDhCTybOSFdMRkpIiL3PMJdalKRzxD1KTpRzFwDD1qk-C3A68IHINNA9qBodV9SsUDO9MJXoEWAQcY_5VlvGMiqy0o68z6rxWR7ElODzE8fpN5U14lm8K4PWThBgqnebOnGsuohWGGQ1wSoJS3tpbVS7jiOAFtKbe6PAQ71_7xi47bHsg7WrPHY0LC0ecmRQnEZ5pXoJmUkf9-6XFbZubhH1A1pvVlF_U_lF2Bg6Nlcp8Xd3pdTNJavyf6IqALM0IFA1MMv5U"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary-container flex items-center justify-center text-[10px] font-bold">+24</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Yeni (New) -->
+<section class="bg-surface-container-lowest -mx-8 px-8 py-20 rounded-[2rem]">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-4xl font-headline font-extrabold tracking-tighter mb-2">Yeni Keşifler</h2>
+<p class="text-on-surface-variant">ChefMate topluluğuna yeni katılan taze tarifler.</p>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto pb-8 no-scrollbar">
+<div class="flex-none w-[400px] bg-surface-container p-4 rounded-2xl">
+<img alt="New Recipe" class="w-full h-56 object-cover rounded-xl mb-6" data-alt="close-up of pasta with pesto sauce and pine nuts on a dark plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvDIDYR1Ax_riY8DAeM1E9sMlHKRS_ssbI3oI16cumRUIyPqi0_QSJ6bV5VBSA13VIuDjKJu1NYcavMRRwSM4TYhG_rr_DaeTVR9cCsJnEihhnNdXskZ4XmeniH-xUnSBhorDWGPwJp2B_T4FHZEj3d9QbGtOjC61uHb6uI-X5TGjV-ew_FRcvUFE1c7BwkaJB-ibo1dLvwDRCG8PdRfSefQzr5NMsOw_DgT5Tw6zeO6niQfCzB5gHEFamHq4bASP8z8AO-fI0BpM"/>
+<h4 class="text-xl font-headline font-bold mb-2 px-2">Fesleğenli Pesto Makarna</h4>
+<p class="text-on-surface-variant text-sm px-2">Kendi pesto sosunu yapmanın inceliklerini keşfet.</p>
+</div>
+<div class="flex-none w-[400px] bg-surface-container p-4 rounded-2xl">
+<img alt="New Recipe" class="w-full h-56 object-cover rounded-xl mb-6" data-alt="aesthetic toast with avocado and egg on a wood surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU1Zi8WrDwjm38Uh8A2LVU63pp3D1BlXkRpbsQjI79kfegPd9rAth43Xx8CFv4CbxlnoOJ0LReNGgb4rolLCFW646saIEMWCx_tG6AnVcJiooUW0wzcfkGimzK7FMTtHi7iK8vqsAHnsMGwb5r6R7IAntjQotYu_Di6AIsnZlMQYH277m_H4f822157gE-6oOxj3Tt_SB_Mulm6r7WND9RPOHaCEtMzZYNHlJpuy-YMPopaabtpaLEpu3YMlpi-KOr1uD9KuCxPIY"/>
+<h4 class="text-xl font-headline font-bold mb-2 px-2">Avokadolu Çıtır Tost</h4>
+<p class="text-on-surface-variant text-sm px-2">Sabah kahvaltılarına modern bir dokunuş.</p>
+</div>
+<div class="flex-none w-[400px] bg-surface-container p-4 rounded-2xl">
+<img alt="New Recipe" class="w-full h-56 object-cover rounded-xl mb-6" data-alt="bowl of healthy berry smoothie with granola toppings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZvajA7ozjEZgey4-EToUi7xYH8XjhkikVgJ4ywO_NKrbPhR_BZo545LN_n2q_Th_q3Ybb6DcquKx3-ZXiXJJq-Ujk-PtRDiiA1ZAgUJsl3Fg1pxwG7XZrj8Z_GaNmKOigy4DHssbA9ES8GnhwrgggOiNko9mqseyUyURGUhHj8E9Bh-UD_NlNLioUL7aDcvG7ocpBOMgGBjMxVm4X24eslV8YvezsnerYTAU8Vg3n_1tcdR2THrhUmvwC_fzbJuaCN-bGfQnV6J0"/>
+<h4 class="text-xl font-headline font-bold mb-2 px-2">Antioksidan Smoothie</h4>
+<p class="text-on-surface-variant text-sm px-2">Güne zinde başlamak için meyve bombası.</p>
+</div>
+</div>
+</section>
+<!-- Favori Yıldız (Favorite Star) -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<h2 class="text-4xl font-headline font-extrabold tracking-tighter">Favori Yıldız</h2>
+</div>
+<div class="bg-surface-container-low rounded-xl p-12 flex flex-col md:flex-row gap-12 items-center relative overflow-hidden">
+<div class="md:w-1/2 z-10">
+<h3 class="text-5xl font-headline font-extrabold mb-6 leading-tight">Yılın Şefi'nden: <br/><span class="text-primary">Trüflü Risotto</span></h3>
+<p class="text-on-surface-variant text-lg mb-8 leading-relaxed italic">"Bu tarif, evde restoran kalitesinde bir deneyim yaşatmak için tasarlandı. Sırrı ise yavaşça eklenen et suyunda saklı."</p>
+<div class="flex items-center gap-4 mb-10">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Chef" class="w-full h-full object-cover" data-alt="portrait of a professional male chef in white uniform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBusg7z5Sc7HifHbCEabAfPUDQSlz43mLzr8RVs1I5Rqxw6GqtozZ6njIREY4oC8Q63-T6tNzOVGMkv9FI7C9nk1_e_VSXFSjJJ3dMRcEnvy0O3xRRGNINwE7heThGU2hw2qKAkTCTW-PHC008g48gDG8KhkVBcIIxc-6ki4HwwOkNsDw_O6-i11x2019vQsKjXRWHja9QWZ1ySjVeykrD7JrPduKYz152LKoUNsX_KsJyJbYtQQVeCjyqz_bzbig7iJfzAdb4XBoQ"/>
+</div>
+<div>
+<p class="font-bold">Chef Alessandro</p>
+<p class="text-xs text-outline uppercase tracking-widest">Michelin Star Award '23</p>
+</div>
+</div>
+<button class="bg-surface-container-highest text-on-surface px-8 py-4 rounded-xl font-headline font-bold hover:bg-surface-bright transition-colors">
+                            Özel Şef Tekniklerini Gör
+                        </button>
+</div>
+<div class="md:w-1/2 relative">
+<img alt="Risotto" class="rounded-xl w-full h-[400px] object-cover editorial-shadow" data-alt="artistic macro photo of creamy mushroom risotto with shaved truffles on top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU33JWPKhErLARYkeJTqvs4_p6N07bNnUsutqdIYIfijuTOPd5JLTWMZOvPI_IlAbMM_bCqt-ptvY4tnLI1Xg5w8TM6Vu72W5x5vx9aYb3bxLUQlaiER_BPTXa_GnOY0j0I1fn8N_shsMULYTCJUN4vwdUnNQAN7FDXoCfYCH3gMsCJ7woAoRiLwqQAn_mpiCYhIQyn2NVSa5LXF9TEnlsWDPsc_MW8ZvY99tHVgaQAMUWoknhHWOLUsVvXe1aha5nXMK2AyuziJs"/>
+<div class="absolute -bottom-6 -right-6 glass-nav p-6 rounded-xl border border-outline-variant/10 max-w-[200px]">
+<p class="text-xs font-bold text-primary uppercase mb-2">Eşleşme</p>
+<p class="text-sm">Kuru beyaz şarap (Pinot Grigio) ile servis edin.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#57423B]/15 bg-[#131313]">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-4 mb-8 md:mb-0">
+<span class="text-[#E66B3D] font-bold text-xl font-headline">ChefMate</span>
+<p class="text-[#E5E2E1]/60 font-['Manrope'] text-sm uppercase tracking-widest">© 2024 ChefMate AI. The Digital Sommelier Experience.</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-8 font-['Manrope'] text-sm uppercase tracking-widest">
+<a class="text-[#E5E2E1]/60 hover:text-[#E66B3D] transition-colors" href="#">About</a>
+<a class="text-[#E5E2E1]/60 hover:text-[#E66B3D] transition-colors" href="#">Careers</a>
+<a class="text-[#E5E2E1]/60 hover:text-[#E66B3D] transition-colors" href="#">Privacy</a>
+<a class="text-[#E5E2E1]/60 hover:text-[#E66B3D] transition-colors" href="#">Terms</a>
+<a class="text-[#E5E2E1]/60 hover:text-[#E66B3D] transition-colors" href="#">Support</a>
+</nav>
+</div>
+</footer>
+</body></html>

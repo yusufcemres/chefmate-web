@@ -10,6 +10,8 @@ import clsx from 'clsx';
 const CUISINES = [
   'Türk', 'İtalyan', 'Asya', 'Meksika', 'Akdeniz',
   'Hint', 'Japon', 'Fransız', 'Ortadoğu', 'Kore',
+  'Çin', 'Tayland', 'Vietnam', 'İspanyol', 'Yunan',
+  'Amerikan', 'Lübnan', 'Fas', 'Endonezya', 'Arap',
 ];
 
 const DIETARY_OPTIONS = [

@@ -72,6 +72,7 @@ export interface Tag {
   slug: string;
   type?: string;
   emoji?: string;
+  parentId?: string | null;
 }
 
 // ========== COOKING MODE ==========

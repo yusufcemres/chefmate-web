@@ -27,13 +27,26 @@ export default async function TagPage({ params }: Props) {
   const { slug } = await params;
   const tags = await fetchApi<Tag[]>('/tags').catch(() => []);
   const tag = tags.find(t => t.slug === slug);
+  const parent = tag?.parentId ? tags.find(t => t.id === tag.parentId) : null;
   const data = await getRecipesByTag(slug).catch(() => ({ items: [] }));
 
   return (
     <div className="max-w-screen-2xl mx-auto px-8 pt-32 pb-24">
-      <Link href="/" className="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-[0.15em] text-text-muted hover:text-primary-dark mb-10 transition-colors">
-        <ArrowLeft className="w-4 h-4" /> Ana Sayfa
-      </Link>
+      <nav className="flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-[0.15em] text-text-muted mb-10">
+        <Link href="/" className="inline-flex items-center gap-2 hover:text-primary-dark transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Ana Sayfa
+        </Link>
+        {parent && (
+          <>
+            <span>›</span>
+            <Link href={`/etiket/${parent.slug}`} className="hover:text-primary-dark transition-colors">
+              {parent.emoji ? `${parent.emoji} ` : ''}{parent.name}
+            </Link>
+          </>
+        )}
+        <span>›</span>
+        <span className="text-primary-dark">{tag?.name || slug}</span>
+      </nav>
 
       <div className="mb-12 max-w-3xl">
         <span className="inline-block text-xs font-heading font-bold uppercase tracking-[0.2em] text-primary-dark mb-4">
