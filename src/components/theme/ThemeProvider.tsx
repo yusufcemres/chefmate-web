@@ -13,8 +13,8 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  mode: 'system',
-  isDark: true,
+  mode: 'light',
+  isDark: false,
   setMode: () => {},
 });
 
@@ -29,12 +29,12 @@ function applyTheme(mode: ThemeMode): boolean {
 }
 
 export function ThemeProvider({ children }: PropsWithChildren) {
-  const [mode, setModeState] = useState<ThemeMode>('system');
-  const [isDark, setIsDark] = useState<boolean>(true);
+  const [mode, setModeState] = useState<ThemeMode>('light');
+  const [isDark, setIsDark] = useState<boolean>(false);
 
   useEffect(() => {
     const stored = (typeof window !== 'undefined' && localStorage.getItem(STORAGE_KEY)) as ThemeMode | null;
-    const initial: ThemeMode = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
+    const initial: ThemeMode = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'light';
     setModeState(initial);
     setIsDark(applyTheme(initial));
 

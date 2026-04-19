@@ -6,7 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { Analytics } from '@vercel/analytics/next';
 
-const themeInitScript = `(function(){try{var k='chefmate_theme_mode';var m=localStorage.getItem(k);if(m!=='light'&&m!=='dark'&&m!=='system')m='system';var d=m==='dark'||(m==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+const themeInitScript = `(function(){try{var k='chefmate_theme_mode';var m=localStorage.getItem(k);if(m!=='light'&&m!=='dark'&&m!=='system')m='light';var d=m==='dark'||(m==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
 
 const jakarta = Plus_Jakarta_Sans({
   variable: '--font-jakarta',
