@@ -6,6 +6,7 @@ import { useAuthStore } from '@/stores/auth-store';
 import { api } from '@/lib/api-client';
 import { User, Mail, ChefHat, Heart, BookOpen, LogOut, Settings } from 'lucide-react';
 import { UserPreferences } from '@/components/profile/UserPreferences';
+import { ThemeSegment } from '@/components/theme/ThemeSegment';
 
 interface UserProfile {
   id: string;
@@ -106,6 +107,9 @@ export default function ProfilePage() {
 
           {/* Preferences */}
           <UserPreferences />
+
+          {/* Theme */}
+          <ThemeSegment />
 
           {/* Actions */}
           <div className="bg-card rounded-2xl border border-border-light divide-y divide-border-light">

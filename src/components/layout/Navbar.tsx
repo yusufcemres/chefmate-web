@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Search, Heart, ChefHat, User, Menu, X, Calendar, ShoppingCart } from 'lucide-react';
 import { useAuthStore } from '@/stores/auth-store';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 export function Navbar() {
   const { isAuthenticated, user, logout, init } = useAuthStore();
@@ -54,6 +55,7 @@ export function Navbar() {
               <Search className="w-4 h-4 text-text-secondary" />
               <span className="text-xs text-text-muted">Tarif ara…</span>
             </Link>
+            <ThemeToggle />
             {isAuthenticated ? (
               <>
                 <Link href="/favoriler" className="p-2 rounded-full hover:bg-surface-low transition-colors" aria-label="Favorilerim">
@@ -71,10 +73,13 @@ export function Navbar() {
             )}
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Menüyü kapat' : 'Menüyü aç'} aria-expanded={menuOpen}>
-            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Actions */}
+          <div className="md:hidden flex items-center gap-1">
+            <ThemeToggle />
+            <button className="p-2" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Menüyü kapat' : 'Menüyü aç'} aria-expanded={menuOpen}>
+              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
