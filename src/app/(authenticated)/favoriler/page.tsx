@@ -22,8 +22,8 @@ export default function FavoritesPage() {
       router.push('/giris');
       return;
     }
-    api.get<{ items: Recipe[] }>('/users/me/favorites?limit=50')
-      .then(data => setRecipes(data.items || []))
+    api.get<Recipe[] | { items: Recipe[] }>('/favorites')
+      .then(data => setRecipes(Array.isArray(data) ? data : (data?.items || [])))
       .catch(() => setRecipes([]))
       .finally(() => setLoading(false));
   }, [isAuthenticated, router]);

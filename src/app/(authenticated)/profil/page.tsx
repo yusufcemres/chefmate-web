@@ -35,7 +35,7 @@ export default function ProfilePage() {
       router.push('/giris');
       return;
     }
-    api.get<UserProfile>('/users/me')
+    api.get<UserProfile>('/auth/me')
       .then(setProfile)
       .catch(() => {})
       .finally(() => setLoading(false));

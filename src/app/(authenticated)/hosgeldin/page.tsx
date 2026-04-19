@@ -35,7 +35,7 @@ const SKILL_LEVELS = [
 
 export default function OnboardingPage() {
   const router = useRouter();
-  const { init } = useAuthStore();
+  const { init, user } = useAuthStore();
   const [step, setStep] = useState(0);
   const [cuisines, setCuisines] = useState<string[]>([]);
   const [dietary, setDietary] = useState<Record<string, boolean>>({});
@@ -48,9 +48,10 @@ export default function OnboardingPage() {
   const toggleAllergen = (a: string) => setAllergens(prev => prev.includes(a) ? prev.filter(x => x !== a) : [...prev, a]);
 
   const handleFinish = async () => {
+    if (!user?.id) { router.push('/'); return; }
     setSaving(true);
     try {
-      await api.patch('/users/me/preferences', {
+      await api.put(`/users/${user.id}/preferences`, {
         cuisinePreferences: cuisines,
         dietaryProfile: dietary,
         allergens,

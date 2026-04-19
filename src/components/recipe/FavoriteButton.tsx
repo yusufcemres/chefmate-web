@@ -13,8 +13,11 @@ export function FavoriteButton({ recipeId }: { recipeId: string }) {
 
   useEffect(() => {
     if (!isAuthenticated) return;
-    api.get<{ isFavorite: boolean }>(`/users/me/favorites/${recipeId}/check`)
-      .then(data => setIsFav(data.isFavorite))
+    api.get<string[] | { ids: string[] }>('/favorites/ids')
+      .then(data => {
+        const ids = Array.isArray(data) ? data : (data?.ids || []);
+        setIsFav(ids.includes(recipeId));
+      })
       .catch(() => {});
   }, [isAuthenticated, recipeId]);
 
@@ -22,13 +25,8 @@ export function FavoriteButton({ recipeId }: { recipeId: string }) {
     if (!isAuthenticated) return;
     setLoading(true);
     try {
-      if (isFav) {
-        await api.delete(`/users/me/favorites/${recipeId}`);
-        setIsFav(false);
-      } else {
-        await api.post(`/users/me/favorites/${recipeId}`);
-        setIsFav(true);
-      }
+      await api.post(`/favorites/${recipeId}`);
+      setIsFav((prev) => !prev);
     } catch {}
     setLoading(false);
   };

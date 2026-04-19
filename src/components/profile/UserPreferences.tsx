@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { api } from '@/lib/api-client';
+import { useAuthStore } from '@/stores/auth-store';
 import { Loader2, Save, AlertTriangle, Leaf, ChefHat } from 'lucide-react';
 import clsx from 'clsx';
 
@@ -38,6 +39,7 @@ interface Preferences {
 }
 
 export function UserPreferences() {
+  const { user } = useAuthStore();
   const [prefs, setPrefs] = useState<Preferences>({
     allergens: [],
     dietaryProfile: {},
@@ -50,7 +52,7 @@ export function UserPreferences() {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
-    api.get<any>('/users/me')
+    api.get<any>('/auth/me')
       .then(data => {
         if (data.preferences) {
           setPrefs({
@@ -88,9 +90,10 @@ export function UserPreferences() {
   };
 
   const savePrefs = async () => {
+    if (!user?.id) return;
     setSaving(true);
     try {
-      await api.patch('/users/me/preferences', prefs);
+      await api.put(`/users/${user.id}/preferences`, prefs);
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } catch {}
